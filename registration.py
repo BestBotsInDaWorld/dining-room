@@ -10,6 +10,10 @@ from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from databaseconnect import *
+
 
 secret_word = "sberbank"
 Builder.load_file('registrate.kv')
@@ -141,6 +145,7 @@ class Registring(Widget):
         }
         encoded_jwt = jwt.encode(payload, secret_word, algorithm="HS256")
         # aleph = jwt.decode(encoded_jwt, secret_word, algorithms=["HS256"]) дешифратор выдает сразу словарь payload
+        databaseconnect.Register_Finish(encoded_jwt, name, surname, last_name)
         return [encoded_jwt, name, surname, last_name, sex, born]
 
 
