@@ -1,0 +1,97 @@
+<Registring>
+    name: name
+    surname: surname
+    last_name: last_name
+    born: born
+    login: login
+    password: password
+    confirm_password: confirm_password
+    empty_line: empty_line
+    cb1: cb1
+    cb2: cb2
+    check_1: check_1
+    check_2: check_2
+    check_3: check_3
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+        GridLayout:
+
+            cols: 2
+            rows: 4
+
+            Label:
+                text: "Имя"
+            TextInput:
+                id: name
+                multiline: False
+            Label:
+                text: "Фамилия"
+            TextInput:
+                id: surname
+                multiline: False
+            Label:
+                text: "Отчество"
+            TextInput:
+                id: last_name
+                multiline: False
+            Label:
+                text: "Дата рождения"
+            TextInput:
+                id: born
+                multiline: False
+        Label:
+            id: empty_line
+            text: ""
+            font_size: 32
+        GridLayout:
+            cols: 5
+            Label:
+                text: "Пол"
+            CheckBox:
+                group: "sex"
+                id: cb1
+                active: True
+            Label:
+                text: "Мужской"
+            CheckBox:
+                group: "sex"
+                id: cb2
+            Label:
+                text: "Женский"
+        GridLayout:
+            size: root.width, root.height
+            cols: 3
+
+            Label:
+                text: "Логин"
+            TextInput:
+                id: login
+                multiline: False
+            Label:
+                id: check_1
+                multiline: True
+            Label:
+                text: "Пароль"
+            TextInput:
+                id: password
+                multiline: False
+            Label:
+                id: check_2
+                text: ""
+                multiline: True
+            Label:
+                text: "Повторите пароль"
+            TextInput:
+                id: confirm_password
+                multiline: False
+            Label:
+                id: check_3
+                text: ""
+                multiline: True
+
+        Button:
+            id: submit
+            text: "Регистрация"
+            font_size: 40
+            on_press: root.btn_click()
