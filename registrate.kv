@@ -196,9 +196,8 @@
             text: "Регистрация"
             font_size: 40
             on_press: 
-                root.btn_click()
                 root.manager.transition = NoTransition()
-                root.manager.current = 'Log'
+                if root.btn_click(): root.manager.current = 'Log'
             background_color: (.5, .5, .5, 0.6)
 <LogApp>
     username_input: username_input
