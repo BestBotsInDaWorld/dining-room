@@ -17,6 +17,9 @@ from kivy.core.text import LabelBase
 from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+import databaseconnect
+from databaseconnect import *
+
 secret_word = "sberbank"
 Builder.load_file('registrate.kv')
 properties = ["имя", "фамилию", "отчество", "дату рождения", "пол"]
@@ -97,7 +100,6 @@ def check_emptiness(line):
 
 
 class RegApp(Screen):
-
     def btn_click(self):
         global secret_word, sex
         all_elements = [self.vital_name, self.surname, self.last_name, self.born]
@@ -148,4 +150,5 @@ class RegApp(Screen):
         }
         encoded_jwt = jwt.encode(payload, secret_word, algorithm="HS256")
         # aleph = jwt.decode(encoded_jwt, secret_word, algorithms=["HS256"]) дешифратор выдает сразу словарь payload
+        databaseconnect.Register_Finish(encoded_jwt, name, surname, last_name, sex, born)
         return [encoded_jwt, name, surname, last_name, sex, born]

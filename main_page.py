@@ -1,6 +1,6 @@
 from registration import *
 from logining import *
-# луа
+
 Builder.load_file('registrate.kv')
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
@@ -10,7 +10,6 @@ LabelBase.register(name='Finlandica-Regular',
 
 class TestApp(App):
     def build(self):
-        # Create the screen manager
         sm = ScreenManager()
         sm.add_widget(LogApp(name='Log'))
         sm.add_widget(RegApp(name='Reg'))
