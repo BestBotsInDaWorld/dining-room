@@ -1,5 +1,6 @@
 import kivy
 import jwt
+import os
 import uuid
 import datetime
 from kivy.app import App
@@ -25,6 +26,15 @@ except Exception as ex:
     print(ex)
 Builder.load_file('login.kv')
 
+class MyLabel(Label):
+    def __init__(self, **kwargs):
+        super(MyLabel, self).__init__(**kwargs)
+        font_path = r"C:\Users\Даниил\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf"
+        self.finlandica_medium = font_path
+        font_path = r"C:\Users\Даниил\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf"
+        self.finlandica_regular = font_path
+        font_path = r"C:\Users\Даниил\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf"
+        self.rubikMonoOne_regular = font_path
 
 class Logining(Widget):
     def enter(self):
