@@ -1,6 +1,7 @@
 import kivy
 import jwt
 import uuid
+from kivymd.app import MDApp
 import datetime
 from kivy.app import App
 from kivy.uix.label import Label
@@ -19,7 +20,7 @@ secret_word = "sberbank"
 Builder.load_file('registrate.kv')
 properties = ["имя", "фамилию", "отчество", "дату рождения", "пол"]
 LabelBase.register(name='RubikMonoOne-Regular',
-                   fn_regular=r'C:\Users\Admin\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf')
+                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
 
 class wrong_log_check(Exception):
     pass
@@ -149,6 +150,7 @@ class Registring(Widget):
 
 
 class RegApp(App):
+    wimage = Image(source="background4.jph")
     def build(self):
         Window.clearcolor = (33/255, 33/255, 31/255, 1);
         return Registring()
