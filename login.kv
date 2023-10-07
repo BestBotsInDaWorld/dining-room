@@ -1,25 +1,51 @@
+WindowManager:
+    Logining:
+    Registring:
+    
+
+
 <Logining>
     username_input: username_input
     password_input: password_input
-    BoxLayout:
-        orientation: 'vertical'
-
+    canvas:
+        Rectangle:
+            source: 'Images/backgrounds/background4.jpg'
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        rows: 5
+        size: root.width/2, root.height/2
+        pos: root.width/4, root.height/4
         Label:
-            font_name: 'RubikMonoOne-Regular'
+            font_name: 'RubikMonoOne_Regular'
             text: 'Вход'
-            font_size: 24
+            font_size: 50
+        GridLayout:
+            rows: 3
+            TextInput:
+                id: username_input
+                hint_text: 'Имя пользователя'
+            TextInput:
+                id: password_input
+                hint_text: 'Пароль'
 
-        TextInput:
-            id: username_input
-            hint_text: 'Имя пользователя'
+                password: True  # Скрыть ввод пароля
 
-
-        TextInput:
-            id: password_input
-            hint_text: 'Пароль'
-            password: True  # Скрыть ввод пароля
-
-        Button:
-            font_name: "RubikMonoOne-Regular"
-            text: 'Войти'
-            on_release: entering
+        
+        GridLayout:
+            size: 400, 400
+            rows: 1
+            Button:
+                font_name: "RubikMonoOne_Regular"
+                text: 'Войти'
+                on_release: entering
+                font_size: 45
+                background_color: (1, 1, 1, 0.5)
+        GridLayout:
+            size: 50, 50
+            rows: 1
+            Button:
+                font_name: 'Finlandica-Regular'
+                text: 'Не зарегестрированы? Сделайте это сейчас!'
+                font_size: 16
+                on_press: 

@@ -9,13 +9,15 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
 from kivy.core.text import LabelBase
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from databaseconnect import *
 import pymysql
+from kivy.uix.screenmanager import Screen, ScreenManager
+
+
 try:
     connection = pymysql.connect(host='37.140.192.80',
                                  user='u0823922_codolo1',
@@ -26,8 +28,15 @@ try:
 except Exception as ex:
     print(ex)
 Builder.load_file('login.kv')
-LabelBase.register(name='RubikMonoOne-Regular',
-                   fn_regular=r'fonts\RuslanDisplay-Regular.ttf')
+LabelBase.register(name='RubikMonoOne_Regular',
+                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
+LabelBase.register(name='Finlandica-Regular',
+                   fn_regular=r'fonts\Finlandica-Regular.ttf')
+
+
+
+class WindowManager(ScreenManager):
+    pass
 
 
 class Logining(Widget):
@@ -38,6 +47,11 @@ class Logining(Widget):
         # except Exception as ex:
         #     print(ex)
         pass
+
+    def Registration_button(self):
+        pass
+
+
 
 
 class RegApp(App):
