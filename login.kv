@@ -1,0 +1,25 @@
+#:import md_icons kivymd.icon_definitions.md_icons
+<Logining>
+    username_input: username_input
+    password_input: password_input
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            font_name:
+            text: 'Вход'
+            font_size: 24
+
+        TextInput:
+            id: username_input
+            hint_text: 'Имя пользователя'
+
+        TextInput:
+            id: password_input
+            hint_text: 'Пароль'
+            password: True  # Скрыть ввод пароля
+
+        Button:
+            text: 'Войти'
+            on_release: entering
