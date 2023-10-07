@@ -1,6 +1,6 @@
 from registration import *
 from logining import *
-
+# луа
 Builder.load_file('registrate.kv')
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
