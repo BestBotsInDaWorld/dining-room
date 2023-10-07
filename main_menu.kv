@@ -1,0 +1,170 @@
+WindowManager:
+    MainMenu:
+    Points:
+    MenuPoint1:
+    MenuPoint2:
+    MenuPoint3:
+
+
+<MainMenu>
+    canvas.before:
+        Rectangle:
+            source: "Images/background4.jpg"
+            pos: self.pos
+            size: self.size
+
+    name: "Menu"
+    money: money
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+
+        GridLayout:
+
+            cols: 1
+            rows: 1
+
+            Label:
+                id: money
+                text: "Счет: 0"
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Точки"
+                on_release: app.root.current = 'Points'
+
+            Button:
+                text: "Другое"
+                on_press: root.btn_click()
+
+<Points>
+    canvas.before:
+        Rectangle:
+            source: "Images/background4.jpg"
+            pos: self.pos
+            size: self.size
+
+    name: 'Points'
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+        GridLayout:
+            cols: 3
+
+            Button:
+                text: "Точка 1"
+                on_release: app.root.current = "MenuPoint1"
+
+            Button:
+                text: "Точка 2"
+                on_release: app.root.current = "MenuPoint2"
+
+            Button:
+                text: "Точка 3"
+                on_release: app.root.current = "MenuPoint3"
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Главное меню"
+                on_release: app.root.current = "Menu"
+
+            Button:
+                text: "Другое"
+
+<MenuPoint1>
+    name: "MenuPoint1"
+    canvas.before:
+        Rectangle:
+            source: "Images/background4.jpg"
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Меню:"
+
+            Label:
+                text: "MENU"
+
+            Label:
+                text: "Доступные столики:"
+
+            Label:
+                text: "TABLES"
+
+        GridLayout:
+            cols: 1
+
+            Button:
+                text: 'Назад'
+                on_release: app.root.current = "Points"
+
+<MenuPoint2>
+    name: "MenuPoint2"
+    canvas.before:
+        Rectangle:
+            source: "Images/background4.jpg"
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Меню:"
+
+            Label:
+                text: "MENU"
+
+            Label:
+                text: "Доступные столики:"
+
+            Label:
+                text: "TABLES"
+
+        GridLayout:
+            cols: 1
+
+            Button:
+                text: 'Назад'
+                on_release: app.root.current = "Points"
+
+<MenuPoint3>
+    name: "MenuPoint3"
+    canvas.before:
+        Rectangle:
+            source: "Images/background4.jpg"
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Меню:"
+
+            Label:
+                text: "MENU"
+
+            Label:
+                text: "Доступные столики:"
+
+            Label:
+                text: "TABLES"
+
+        GridLayout:
+            cols: 1
+
+            Button:
+                text: 'Назад'
+                on_release: app.root.current = "Points"
