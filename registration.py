@@ -18,7 +18,8 @@ import os
 secret_word = "sberbank"
 Builder.load_file('registrate.kv')
 properties = ["имя", "фамилию", "отчество", "дату рождения", "пол"]
-LabelBase.register(name='Finlandca-Medium', fn_regular=r'C:\Users\Admin\Documents\GitHub\dining-room\fonts\Finlandica-Medium.ttf')
+LabelBase.register(name='RubikMonoOne-Regular',
+                   fn_regular=r'C:\Users\Admin\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf')
 
 class wrong_log_check(Exception):
     pass
