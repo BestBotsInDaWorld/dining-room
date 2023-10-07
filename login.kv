@@ -4,8 +4,8 @@
     BoxLayout:
         orientation: 'vertical'
 
-        MyLabel:
-            font_name: 'rubikMonoOne_regular'
+        Label:
+            font_name: 'RubikMonoOne-Regular'
             text: 'Вход'
             font_size: 24
 
@@ -13,11 +13,13 @@
             id: username_input
             hint_text: 'Имя пользователя'
 
+
         TextInput:
             id: password_input
             hint_text: 'Пароль'
             password: True  # Скрыть ввод пароля
 
         Button:
+            font_name: "RubikMonoOne-Regular"
             text: 'Войти'
             on_release: entering

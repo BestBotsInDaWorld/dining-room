@@ -10,6 +10,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from kivy.core.text import LabelBase
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
@@ -25,16 +26,9 @@ try:
 except Exception as ex:
     print(ex)
 Builder.load_file('login.kv')
+LabelBase.register(name='RubikMonoOne-Regular',
+                   fn_regular=r'fonts\RuslanDisplay-Regular.ttf')
 
-class MyLabel(Label):
-    def __init__(self, **kwargs):
-        super(MyLabel, self).__init__(**kwargs)
-        font_path = r"C:\Users\Даниил\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf"
-        self.finlandica_medium = font_path
-        font_path = r"C:\Users\Даниил\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf"
-        self.finlandica_regular = font_path
-        font_path = r"C:\Users\Даниил\Documents\GitHub\dining-room\fonts\RubikMonoOne-Regular.ttf"
-        self.rubikMonoOne_regular = font_path
 
 class Logining(Widget):
     def enter(self):
