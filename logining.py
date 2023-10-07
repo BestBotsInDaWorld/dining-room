@@ -17,13 +17,13 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from databaseconnect import *
 import pymysql
-
+secret_word = "sberbank"
 try:
     connection = pymysql.connect(host='37.140.192.80',
-                                 user='u0823922_codolo1',
-                                 password='codologia1',
+                                 user='u0823922_hakaton',
+                                 password='tB4nG4fN9sqG1vJ9',
                                  cursorclass=pymysql.cursors.DictCursor,
-                                 database="u0823922_test")
+                                 database="u0823922_hakaton")
     print("successfully...")
 except Exception as ex:
     print(ex)
@@ -35,10 +35,16 @@ LabelBase.register(name='Finlandica-Regular',
 
 
 class LogApp(Screen):
-    def enter(self):
-        # try:
-        #     with cursor.connect as cursor:
-        #         pass
-        # except Exception as ex:
-        #     print(ex)
-        pass
+    def entering(self):
+        payload = {"login": str(self.username_input.text), "password": str(self.password_input.text)}
+        encoded_try = jwt.encode(payload, secret_word, algorithm="HS256")
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT * FROM `users` WHERE `jwt` = '{encoded_try}'"
+                cursor.execute(find_query)
+                print(cursor.fetchall())
+                if len(cursor.fetchall()) == 0:
+                    raise Exception('Неверный логин или пароль')
+                print("ВОШЕЛ")
+        except Exception as ex:
+            print(ex)
