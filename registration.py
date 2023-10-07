@@ -96,7 +96,7 @@ def check_emptiness(line):
         raise emptiness("Заполните строку")
 
 
-class Registring(Widget):
+class RegApp(Screen):
 
     def btn_click(self):
         global secret_word, sex
@@ -149,9 +149,3 @@ class Registring(Widget):
         encoded_jwt = jwt.encode(payload, secret_word, algorithm="HS256")
         # aleph = jwt.decode(encoded_jwt, secret_word, algorithms=["HS256"]) дешифратор выдает сразу словарь payload
         return [encoded_jwt, name, surname, last_name, sex, born]
-
-
-class RegApp(Screen):
-    def build(self):
-        Window.clearcolor = (33 / 255, 33 / 255, 31 / 255, 1)
-        return Registring()

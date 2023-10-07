@@ -29,12 +29,12 @@ except Exception as ex:
     print(ex)
 Builder.load_file('login.kv')
 LabelBase.register(name='RubikMonoOne-Regular',
-                   fn_regular=r'fonts\RuslanDisplay-Regular.ttf')
+                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts\Finlandica-Regular.ttf')
 
 
-class Logining(Widget):
+class LogApp(Screen):
     def enter(self):
         # try:
         #     with cursor.connect as cursor:
@@ -42,8 +42,3 @@ class Logining(Widget):
         # except Exception as ex:
         #     print(ex)
         pass
-
-
-class LogApp(Screen):
-    def build(self):
-        return Logining()
