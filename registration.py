@@ -10,16 +10,15 @@ from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from databaseconnect import *
-
+from kivy.core.window import Window
+from kivy.config import Config
+from kivy.core.text import LabelBase
+import os
 
 secret_word = "sberbank"
 Builder.load_file('registrate.kv')
-
 properties = ["имя", "фамилию", "отчество", "дату рождения", "пол"]
-
+LabelBase.register(name='Finlandca-Medium', fn_regular=r'C:\Users\Admin\Documents\GitHub\dining-room\fonts\Finlandica-Medium.ttf')
 
 class wrong_log_check(Exception):
     pass
@@ -145,12 +144,12 @@ class Registring(Widget):
         }
         encoded_jwt = jwt.encode(payload, secret_word, algorithm="HS256")
         # aleph = jwt.decode(encoded_jwt, secret_word, algorithms=["HS256"]) дешифратор выдает сразу словарь payload
-        databaseconnect.Register_Finish(encoded_jwt, name, surname, last_name)
         return [encoded_jwt, name, surname, last_name, sex, born]
 
 
 class RegApp(App):
     def build(self):
+        Window.clearcolor = (33/255, 33/255, 31/255, 1);
         return Registring()
 
 
