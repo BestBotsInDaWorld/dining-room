@@ -14,13 +14,19 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.config import Config
 from kivy.core.text import LabelBase
-import os
+from kivy.uix.image import Image
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 secret_word = "sberbank"
 Builder.load_file('registrate.kv')
 properties = ["имя", "фамилию", "отчество", "дату рождения", "пол"]
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
+
+
+class Manager(ScreenManager):
+    pass
+
 
 class wrong_log_check(Exception):
     pass
@@ -98,7 +104,7 @@ class Registring(Widget):
 
     def btn_click(self):
         global secret_word, sex
-        all_elements = [self.name, self.surname, self.last_name, self.born]
+        all_elements = [self.vital_name, self.surname, self.last_name, self.born]
         self.check_1.text = ""
         self.check_2.text = ""
         self.check_3.text = ""
@@ -137,7 +143,7 @@ class Registring(Widget):
             return 0
         sex = check_sex(self.cb1, self.cb2)
         login, password = str(self.login.text), str(self.password.text)
-        name, surname, last_name, born = str(self.name.text), str(self.surname.text), \
+        name, surname, last_name, born = str(self.vital_name.text), str(self.surname.text), \
             str(self.last_name.text), str(self.born.text)
         jwt_id = str(uuid.uuid4())
         payload = {
@@ -150,10 +156,9 @@ class Registring(Widget):
 
 
 class RegApp(App):
-    wimage = Image(source="background4.jph")
     def build(self):
-        Window.clearcolor = (33/255, 33/255, 31/255, 1);
-        return Registring()
+        Window.clearcolor = (33 / 255, 33 / 255, 31 / 255, 1);
+        return Manager()
 
 
 if __name__ == '__main__':
