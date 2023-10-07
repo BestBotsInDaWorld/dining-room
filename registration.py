@@ -1,6 +1,7 @@
 import kivy
 import jwt
 import uuid
+from kivymd.app import MDApp
 import datetime
 from kivy.app import App
 from kivy.uix.label import Label
@@ -149,6 +150,7 @@ class Registring(Widget):
 
 
 class RegApp(App):
+    wimage = Image(source="background4.jph")
     def build(self):
         Window.clearcolor = (33/255, 33/255, 31/255, 1);
         return Registring()
