@@ -1,4 +1,4 @@
-#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import NoTransition kivy.uix.screenmanager.NoTransition
 <RegApp>
     vital_name: vital_name
     surname: surname
@@ -94,7 +94,7 @@
                 text: "Обратно к логину"
                 font_size: 20
                 on_press:
-                    root.transition = FadeTransition(clearcolor=(0, 1, 0, 1))
+                    root.manager.transition = NoTransition()
                     root.manager.current = 'Log'
                 background_color: (.5, .5, .5, 0.6)
         GridLayout:
@@ -195,7 +195,10 @@
             font_name: "RubikMonoOne-Regular"       
             text: "Регистрация"
             font_size: 40
-            on_press: root.btn_click()
+            on_press: 
+                root.btn_click()
+                root.manager.transition = NoTransition()
+                root.manager.current = 'Log'
             background_color: (.5, .5, .5, 0.6)
 <LogApp>
     username_input: username_input
@@ -243,5 +246,5 @@
                 text: 'Не зарегестрированы? Сделайте это сейчас!'
                 font_size: 16
                 on_press: 
-                    root.transition = FadeTransition(clearcolor=(0, 1, 0, 1))           
+                    root.manager.transition = NoTransition()
                     root.manager.current = 'Reg'
