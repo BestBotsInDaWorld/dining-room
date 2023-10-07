@@ -24,10 +24,6 @@ LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
 
 
-class Manager(ScreenManager):
-    pass
-
-
 class wrong_log_check(Exception):
     pass
 
@@ -155,11 +151,7 @@ class Registring(Widget):
         return [encoded_jwt, name, surname, last_name, sex, born]
 
 
-class RegApp(App):
+class RegApp(Screen):
     def build(self):
-        Window.clearcolor = (33 / 255, 33 / 255, 31 / 255, 1);
-        return Manager()
-
-
-if __name__ == '__main__':
-    RegApp().run()
+        Window.clearcolor = (33 / 255, 33 / 255, 31 / 255, 1)
+        return Registring()

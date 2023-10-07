@@ -1,241 +1,236 @@
-<Manager>
-    Screen:
-        name: 'Registring'
-        vital_name: vital_name
-        surname: surname
-        last_name: last_name
-        born: born
-        login: login
-        password: password
-        confirm_password: confirm_password
-        empty_line: empty_line
-        cb1: cb1
-        cb2: cb2
-        check_1: check_1
-        check_2: check_2
-        check_3: check_3
-        GridLayout:
-            canvas:
-                Rectangle:
-                    source: 'Images/backgrounds/background4.jpg'
-                    size: self.size
-                    pos: self.pos
-            size: root.width, root.height
-            cols: 1
-            GridLayout:
-
-                cols: 2
-                rows: 4
-
-                Label:
-                    text: "Имя"
-                    font_name: "RubikMonoOne-Regular"
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width / 5, self.height
-                            pos: root.width / 5, self.y
-                            radius: [15]
-                    hint_text: "Введите имя"
-                TextInput:
-                    id: vital_name
-                    multiline: False
-                Label:
-                    font_name: "RubikMonoOne-Regular"
-                    text: "Фамилия"
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width / 4, self.height
-                            pos: root.width / 5.30, self.y
-                            radius: [15]
-                TextInput:
-                    id: surname
-                    multiline: False
-                Label:
-                    font_name: "RubikMonoOne-Regular"
-                    text: "Отчество"
-                    font_size: 16
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width / 3.25, self.height
-                            pos: root.width / 5.75, self.y
-                            radius: [15]
-                TextInput:
-                    id: last_name
-                    multiline: False
-                Label:
-                    font_name: "RubikMonoOne-Regular"
-                    text: "Дата рождения"
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width / 2.2, self.height
-                            pos: root.width / 7.25, self.y
-                            radius: [15]
-                TextInput:
-                    id: born
-                    multiline: False
-            GridLayout:
-                cols: 2
-                Label:
-                    font_name: "RubikMonoOne-Regular"        
-                    id: empty_line
-                    text: ""
-                    font_size: 12
-                    multiline: True
-                Button:
-                    id: submit
-                    font_name: "RubikMonoOne-Regular"       
-                    text: "Обратно к логину"
-                    font_size: 20
-                    on_press: root.current = 'Logining'
-                    background_color: (.5, .5, .5, 0.6)
-            GridLayout:
-                cols: 5
-                Label:
-                    font_name: "RubikMonoOne-Regular"   
-                    text: "Пол"
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width / 2, self.height / 2
-                            pos: root.width / 3 * 0.15, root.height / 3 * 1.33
-                            radius: [15]
-                CheckBox:
-                    group: "sex"
-                    id: cb1
-                    active: True
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.4)
-                        RoundedRectangle:
-                            size: self.width / 3, self.height / 2
-                            pos: root.width / 3 * 0.8, root.height / 3 * 1.33
-                            radius: [15]
-                Label:
-                    font_name: "RubikMonoOne-Regular"   
-                    text: "Мужской"
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width, self.height / 2
-                            pos: root.width / 3 * 1.2, root.height / 3 * 1.33
-                            radius: [15]
-                CheckBox:
-                    group: "sex"
-                    id: cb2
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.4)
-                        RoundedRectangle:
-                            size: self.width / 3, self.height / 2
-                            pos: root.width / 3 * 2, root.height / 3 * 1.33
-                            radius: [15]
-                Label:
-                    font_name: "RubikMonoOne-Regular"   
-                    text: "Женский"
-                    canvas.before:
-                        Color:
-                            rgba: (.5, .5, .5, 0.6)
-                        RoundedRectangle:
-                            size: self.width, self.height / 2
-                            pos: root.width / 3 * 2.4, root.height / 3 * 1.33
-                            radius: [15]
-            GridLayout:
-                size: root.width, root.height
-                cols: 3
-
-                Label:
-                    font_name: "RubikMonoOne-Regular"               
-                    text: "Логин"
-                TextInput:
-                    id: login
-                    multiline: False
-                Label:
-                    font_name: "RubikMonoOne-Regular"               
-                    id: check_1
-                    multiline: True
-                Label:
-                    font_name: "RubikMonoOne-Regular"               
-                    text: "Пароль"
-                TextInput:
-                    id: password
-                    password: True
-                    multiline: False
-                Label:
-                    font_name: "RubikMonoOne-Regular"                   
-                    id: check_2
-                    font_size: 12
-                    text: ""
-                    multiline: True
-                Label:
-                    font_name: "RubikMonoOne-Regular"              
-                    text: "Повторите пароль"
-                TextInput:
-                    id: confirm_password
-                    password: True
-                    multiline: False
-                Label:
-                    id: check_3
-                    font_name: "RubikMonoOne-Regular" 
-                    text: ""
-                    multiline: True
-
-            Button:
-                id: submit
-                font_name: "RubikMonoOne-Regular"       
-                text: "Регистрация"
-                font_size: 40
-                on_press: root.btn_click()
-                background_color: (.5, .5, .5, 0.6)
-    Screen:
-        name: 'Logining'
-        username_input: username_input
-        password_input: password_input
+<RegApp>
+    vital_name: vital_name
+    surname: surname
+    last_name: last_name
+    born: born
+    login: login
+    password: password
+    confirm_password: confirm_password
+    empty_line: empty_line
+    cb1: cb1
+    cb2: cb2
+    check_1: check_1
+    check_2: check_2
+    check_3: check_3
+    GridLayout:
         canvas:
             Rectangle:
                 source: 'Images/backgrounds/background4.jpg'
-                pos: self.pos
                 size: self.size
+                pos: self.pos
+        size: root.width, root.height
+        cols: 1
         GridLayout:
-            rows: 5
-            size: root.width/2, root.height/2
-            pos: root.width/4, root.height/4
+
+            cols: 2
+            rows: 4
+
             Label:
-                font_name: 'RubikMonoOne_Regular'
-                text: 'Вход'
-                font_size: 50
-            GridLayout:
-                rows: 3
-                TextInput:
-                    id: username_input
-                    hint_text: 'Имя пользователя'
-                TextInput:
-                    id: password_input
-                    hint_text: 'Пароль'
-                    password: True  # Скрыть ввод пароля
-            GridLayout:
-                size: 400, 400
-                rows: 1
-                Button:
-                    font_name: "RubikMonoOne_Regular"
-                    text: 'Войти'
-                    on_release: root.entering()
-                    font_size: 45
-                    background_color: (1, 1, 1, 0.5)
-            GridLayout:
-                size: 50, 50
-                rows: 1
-                Button:
-                    font_name: 'Finlandica-Regular'
-                    text: 'Не зарегестрированы? Сделайте это сейчас!'
-                    font_size: 16
-                    on_press: root.current = 'Registring'
+                text: "Имя"
+                font_name: "RubikMonoOne-Regular"
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width / 5, self.height
+                        pos: root.width / 5, self.y
+                        radius: [15]
+                hint_text: "Введите имя"
+            TextInput:
+                id: vital_name
+                multiline: False
+            Label:
+                font_name: "RubikMonoOne-Regular"
+                text: "Фамилия"
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width / 4, self.height
+                        pos: root.width / 5.30, self.y
+                        radius: [15]
+            TextInput:
+                id: surname
+                multiline: False
+            Label:
+                font_name: "RubikMonoOne-Regular"
+                text: "Отчество"
+                font_size: 16
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width / 3.25, self.height
+                        pos: root.width / 5.75, self.y
+                        radius: [15]
+            TextInput:
+                id: last_name
+                multiline: False
+            Label:
+                font_name: "RubikMonoOne-Regular"
+                text: "Дата рождения"
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width / 2.2, self.height
+                        pos: root.width / 7.25, self.y
+                        radius: [15]
+            TextInput:
+                id: born
+                multiline: False
+        GridLayout:
+            cols: 2
+            Label:
+                font_name: "RubikMonoOne-Regular"        
+                id: empty_line
+                text: ""
+                font_size: 12
+                multiline: True
+            Button:
+                id: submit
+                font_name: "RubikMonoOne-Regular"       
+                text: "Обратно к логину"
+                font_size: 20
+                on_press: root.current = 'Log'
+                background_color: (.5, .5, .5, 0.6)
+        GridLayout:
+            cols: 5
+            Label:
+                font_name: "RubikMonoOne-Regular"   
+                text: "Пол"
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width / 2, self.height / 2
+                        pos: root.width / 3 * 0.15, root.height / 3 * 1.33
+                        radius: [15]
+            CheckBox:
+                group: "sex"
+                id: cb1
+                active: True
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.4)
+                    RoundedRectangle:
+                        size: self.width / 3, self.height / 2
+                        pos: root.width / 3 * 0.8, root.height / 3 * 1.33
+                        radius: [15]
+            Label:
+                font_name: "RubikMonoOne-Regular"   
+                text: "Мужской"
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width, self.height / 2
+                        pos: root.width / 3 * 1.2, root.height / 3 * 1.33
+                        radius: [15]
+            CheckBox:
+                group: "sex"
+                id: cb2
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.4)
+                    RoundedRectangle:
+                        size: self.width / 3, self.height / 2
+                        pos: root.width / 3 * 2, root.height / 3 * 1.33
+                        radius: [15]
+            Label:
+                font_name: "RubikMonoOne-Regular"   
+                text: "Женский"
+                canvas.before:
+                    Color:
+                        rgba: (.5, .5, .5, 0.6)
+                    RoundedRectangle:
+                        size: self.width, self.height / 2
+                        pos: root.width / 3 * 2.4, root.height / 3 * 1.33
+                        radius: [15]
+        GridLayout:
+            size: root.width, root.height
+            cols: 3
+
+            Label:
+                font_name: "RubikMonoOne-Regular"               
+                text: "Логин"
+            TextInput:
+                id: login
+                multiline: False
+            Label:
+                font_name: "RubikMonoOne-Regular"               
+                id: check_1
+                multiline: True
+            Label:
+                font_name: "RubikMonoOne-Regular"               
+                text: "Пароль"
+            TextInput:
+                id: password
+                password: True
+                multiline: False
+            Label:
+                font_name: "RubikMonoOne-Regular"                   
+                id: check_2
+                font_size: 12
+                text: ""
+                multiline: True
+            Label:
+                font_name: "RubikMonoOne-Regular"              
+                text: "Повторите пароль"
+            TextInput:
+                id: confirm_password
+                password: True
+                multiline: False
+            Label:
+                id: check_3
+                font_name: "RubikMonoOne-Regular" 
+                text: ""
+                multiline: True
+
+        Button:
+            id: submit
+            font_name: "RubikMonoOne-Regular"       
+            text: "Регистрация"
+            font_size: 40
+            on_press: root.btn_click()
+            background_color: (.5, .5, .5, 0.6)
+<LogApp>
+    username_input: username_input
+    password_input: password_input
+    canvas:
+        Rectangle:
+            source: 'Images/backgrounds/background4.jpg'
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        rows: 5
+        size: root.width/2, root.height/2
+        pos: root.width/4, root.height/4
+        Label:
+            text: 'Вход'
+            font_size: 50
+        GridLayout:
+            rows: 3
+            TextInput:
+                id: username_input
+                hint_text: 'Имя пользователя'
+            TextInput:
+                id: password_input
+                hint_text: 'Пароль'
+                password: True  # Скрыть ввод пароля
+        GridLayout:
+            size: 400, 400
+            rows: 1
+            Button:
+                text: 'Войти'
+                on_release: root.entering()
+                font_size: 45
+                background_color: (1, 1, 1, 0.5)
+        GridLayout:
+            size: 50, 50
+            rows: 1
+            Button:
+                font_name: 'Finlandica-Regular'
+                text: 'Не зарегестрированы? Сделайте это сейчас!'
+                font_size: 16
+                on_press: root.manager.current = 'Reg'
