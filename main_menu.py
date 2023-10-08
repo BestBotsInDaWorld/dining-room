@@ -25,5 +25,5 @@ LabelBase.register(name='RubikMonoOne-Regular',
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts\Finlandica-Regular.ttf')
 
-class MainMenuApp(Screen):
+class MainMenuApp(MDScreen):
     pass
