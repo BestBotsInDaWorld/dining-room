@@ -34,4 +34,19 @@ LabelBase.register(name='Finlandica-Regular',
 
 
 class AdminLogApp(Screen):
-    pass
+    def check_admin(self):
+        payload = {"login": str(self.username_input.text), "password": str(self.password_input.text)}
+
+        jwt_token = jwt.encode(payload, "sberbank",  algorithm="HS256")
+        print(jwt_token)
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT * FROM `admin_login` WHERE `jwt_token` = '{str(jwt_token)}'"
+                cursor.execute(find_query)
+
+                if len(cursor.fetchall()) == 0:
+                    self.worst_login.text = "Неверный логин или пароль"
+                    raise Exception()
+                self.worst_login.text = "Зашел"
+        except Exception as ex:
+            print(ex)

@@ -1,5 +1,6 @@
 <AdminLogApp>
-    jwt_token: jwt_token
+    username_input: username_input
+    password_input: username_input
     worst_login: worst_login
     canvas:
         Rectangle:
@@ -31,10 +32,13 @@
         GridLayout:
             rows: 3
             TextInput:
-                id: jwt_token
+                id: username_input
                 background_color: (1, 1, 1, 0.35)
-                hint_text: 'jwt token'
-
+                hint_text: 'Имя пользователя'
+            TextInput:
+                id: password_input
+                background_color: (1, 1, 1, 0.35)
+                hint_text: 'Пароль'
         GridLayout:
             size: 200, 200
             rows: 2
@@ -43,6 +47,6 @@
             Button:
                 font_name: "RubikMonoOne-Regular"
                 text: 'Войти'
-                on_release: root.entering()
+                on_release: root.check_admin()
                 font_size: self.width / 25
                 background_color: (1, 1, 1, 0.2)
