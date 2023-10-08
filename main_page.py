@@ -1,6 +1,8 @@
 from registration import *
 from logining import *
 from main_menu import *
+from adminLogin import *
+
 
 Builder.load_file('registrate.kv')
 Builder.load_file('mainPage.kv')
@@ -15,8 +17,8 @@ class TestApp(App):
         sm = ScreenManager()
         sm.add_widget(LogApp(name='Log'))
         sm.add_widget(RegApp(name='Reg'))
-        sm.add_widget(MainMenuApp(name='Menu'))
-        sm.current = 'Menu'
+        sm.add_widget(AdminLogApp(name="AdminLog"))
+        sm.current = 'AdminLog'
         return sm
 
 

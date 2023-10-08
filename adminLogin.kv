@@ -1,0 +1,48 @@
+<AdminLogApp>
+    jwt_token: jwt_token
+    worst_login: worst_login
+    canvas:
+        Rectangle:
+            source: 'Images/backgrounds/background4.jpg'
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        row_force_default: True
+        col_force_default: True
+        rows: 7
+        row_default_height: root.height / 10
+        col_default_width: root.width / 2
+        pos: root.width/4, -root.height/6
+        Label:
+            text: 'Вход'
+            font_name: "RubikMonoOne-Regular"
+            font_size: self.width / 13
+        Label:
+            text: 'в админ панель'
+            font_name: "RubikMonoOne-Regular"
+            font_size: self.width / 13
+        GridLayout:
+            rows: 1
+            Label:
+                id: worst_login
+                font_size: self.width / 25
+                font_name: "Finlandica-Regular"
+                text: ""
+        GridLayout:
+            rows: 3
+            TextInput:
+                id: jwt_token
+                background_color: (1, 1, 1, 0.35)
+                hint_text: 'jwt token'
+
+        GridLayout:
+            size: 200, 200
+            rows: 2
+            Label:
+                text: ""
+            Button:
+                font_name: "RubikMonoOne-Regular"
+                text: 'Войти'
+                on_release: root.entering()
+                font_size: self.width / 25
+                background_color: (1, 1, 1, 0.2)
