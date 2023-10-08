@@ -31,55 +31,60 @@
                 font_name: "RubikMonoOne-Regular"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width / 5, self.height
-                        pos: root.width / 5, self.y
+                        size: self.width / 5, self.height - self.height/8
+                        pos: root.width / 5, self.y + 2
                         radius: [15]
                 hint_text: "Введите имя"
+
             TextInput:
                 id: vital_name
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"
                 text: "Фамилия"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width / 4, self.height
-                        pos: root.width / 5.30, self.y
+                        size: self.width / 4, self.height - self.height/8
+                        pos: root.width / 5.30, self.y + 2
                         radius: [15]
             TextInput:
                 id: surname
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"
                 text: "Отчество"
                 font_size: 16
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width / 3.25, self.height
-                        pos: root.width / 5.75, self.y
+                        size: self.width / 3.25, self.height - self.height/8
+                        pos: root.width / 5.75, self.y + 2
                         radius: [15]
             TextInput:
                 id: last_name
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"
                 text: "Дата рождения"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width / 2.2, self.height
-                        pos: root.width / 7.25, self.y
+                        size: self.width / 2.2, self.height - self.height/8
+                        pos: root.width / 7.25, self.y + 2
                         radius: [15]
             TextInput:
                 id: born
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
         GridLayout:
             cols: 2
             Label:
@@ -96,7 +101,7 @@
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'Log'
-                background_color: (.5, .5, .5, 0.6)
+                background_color: (.5, .5, .5, 0.1)
         GridLayout:
             cols: 5
             Label:
@@ -104,10 +109,10 @@
                 text: "Пол"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
                         size: self.width / 2, self.height / 2
-                        pos: root.width / 3 * 0.15, root.height / 3 * 1.33
+                        pos: root.width / 3 * 0.15, root.height / 3 * 1.33 + 5
                         radius: [15]
             CheckBox:
                 group: "sex"
@@ -115,27 +120,27 @@
                 active: True
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.4)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
                         size: self.width / 3, self.height / 2
-                        pos: root.width / 3 * 0.8, root.height / 3 * 1.33
+                        pos: root.width / 3 * 0.8, root.height / 3 * 1.33 + 5
                         radius: [15]
             Label:
                 font_name: "RubikMonoOne-Regular"   
                 text: "Мужской"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
                         size: self.width, self.height / 2
-                        pos: root.width / 3 * 1.2, root.height / 3 * 1.33
+                        pos: root.width / 3 * 1.2, root.height / 3 * 1.33 + 5
                         radius: [15]
             CheckBox:
                 group: "sex"
                 id: cb2
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.4)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
                         size: self.width / 3, self.height / 2
                         pos: root.width / 3 * 2, root.height / 3 * 1.33
@@ -145,10 +150,10 @@
                 text: "Женский"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
                         size: self.width, self.height / 2
-                        pos: root.width / 3 * 2.4, root.height / 3 * 1.33
+                        pos: root.width / 3 * 2.4, root.height / 3 * 1.33 + 5
                         radius: [15]
         GridLayout:
             size: root.width, root.height
@@ -159,14 +164,15 @@
                 text: "Логин"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width, self.height / 1.5
-                        pos: 0, root.height / 3 * 1.05
+                        size: self.width - self.width/2, self.height / 1.5
+                        pos: root.width / 12, root.height / 3 * 1.05 - 3
                         radius: [15]
             TextInput:
                 id: login
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"               
                 id: check_1
@@ -176,15 +182,16 @@
                 text: "Пароль"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width, self.height / 1.5
-                        pos: 0, root.height / 3 * 0.85
+                        size: self.width - self.width/3, self.height / 1.5
+                        pos: root.width / 18, root.height / 3 * 0.85 - 3
                         radius: [15]
             TextInput:
                 id: password
                 password: True
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"                   
                 id: check_2
@@ -196,15 +203,17 @@
                 text: "Повторите пароль"
                 canvas.before:
                     Color:
-                        rgba: (.5, .5, .5, 0.6)
+                        rgba: (.5, .5, .5, 0.1)
                     RoundedRectangle:
-                        size: self.width, self.height / 1.5
-                        pos: 0, root.height / 3 * 0.65
+                        size: self.width - self.width/8, self.height / 1.5
+                        pos: root.width / 55, root.height / 3 * 0.65 - 3
                         radius: [15]
             TextInput:
                 id: confirm_password
+
                 password: True
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 id: check_3
                 font_name: "RubikMonoOne-Regular" 
@@ -219,7 +228,7 @@
             on_press: 
                 root.manager.transition = NoTransition()
                 if root.btn_click(): root.manager.current = 'Log'
-            background_color: (.5, .5, .5, 0.6)
+            background_color: (.5, .5, .5, 0.2)
 <LogApp>
     username_input: username_input
     password_input: password_input

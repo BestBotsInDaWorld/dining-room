@@ -1,0 +1,29 @@
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+<MainMenuApp>
+    amount: amount
+    canvas:
+        Rectangle:
+            source: "Images/backgrounds/background4.jpg"
+            pos: self.pos
+            size: self.size
+    Label:
+        id: amount
+        pos: -root.width * 0.32, root.height * 0.40
+        text: "приветствуем вас! "
+        font_name: "RubikMonoOne-Regular"
+        font_size: 16
+    Button:
+        canvas:
+            Rectangle:
+                source: "Images/icons/ic-24-flag.png"
+                pos: self.pos
+                size: self.width, self.height
+        font_name: "Finlandica-Regular"
+        size_hint_x: None
+        size_hint_y: None
+        size: root.width / 10, root.height / 8
+        pos: root.width * 0.3, root.height * 0.40
+        text: "Доступ к \n админ \n панели"
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Admin_Login'
