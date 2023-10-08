@@ -1,0 +1,59 @@
+<Points>
+    canvas.before:
+        Rectangle:
+            source: "Images/backgrounds/background4.jpg"
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                canvas.before:
+                    Rectangle:
+                        source: "Images/shapes/circle2.png"
+                        size: 100, 100
+                        pos: self.pos
+                background_color: (0, 0, 0, 0)
+                on_press: root.button_novobulvarnaya()
+
+            Label:
+                text: "Новобульварная, 10"
+
+            Button:
+                canvas.before:
+                    Rectangle:
+                        source: "Images/shapes/circle2.png"
+                        size: 100, 100
+                        pos: self.pos
+                background_color: (0, 0, 0, 0)
+                on_press: root.button_balyabina()
+
+            Label:
+                text: 'Балябина, 32'
+
+            Button:
+                canvas.before:
+                    Rectangle:
+                        source: "Images/shapes/circle2.png"
+                        size: 100, 100
+                        pos: self.pos
+                background_color: (0, 0, 0, 0)
+                on_press: root.button_polina_osipenko()
+
+            Label:
+                text: 'Полины Осипенко, 2'
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Меню"
+                size: 20, 20
+
+            Button:
+                text: "Профиль"
