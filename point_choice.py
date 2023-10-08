@@ -50,7 +50,7 @@ class PointChoiceApp(Screen):
         except Exception as ex:
             print(ex)
         for index in range(len(adress)):
-            btn = Button(text='Value %d' % adress[index]["Adress"], size_hint_y=None, height=44)
+            btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44)
             btn.bind(on_release=lambda btn: self.point_choice.select(btn.text))
             self.point_choice.add_widget(btn)
         self.point_button.bind(on_release=self.point_choice.open)
