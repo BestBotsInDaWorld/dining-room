@@ -17,6 +17,8 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from databaseconnect import *
 import pymysql
+
+
 secret_word = "sberbank"
 try:
     connection = pymysql.connect(host='37.140.192.80',
@@ -46,7 +48,8 @@ class LogApp(Screen):
                 if len(cursor.fetchall()) == 0:
                     self.worst_login.text = "Неверный логин или пароль"
                     raise Exception('Неверный логин или пароль')
-                print("ВОШЕЛ")
-                self.empty_line.text = "Вы успешно зарегестрированы!"
+                    return 0
+                return 1
         except Exception as ex:
             print(ex)
+
