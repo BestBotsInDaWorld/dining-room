@@ -42,8 +42,8 @@ class LogApp(Screen):
             with connection.cursor() as cursor:
                 find_query = f"SELECT * FROM `users` WHERE `jwt` = '{encoded_try}'"
                 cursor.execute(find_query)
-
                 if len(cursor.fetchall()) == 0:
+                    self.worst_login.text = "Неверный логин или пароль"
                     raise Exception('Неверный логин или пароль')
                 print("ВОШЕЛ")
         except Exception as ex:
