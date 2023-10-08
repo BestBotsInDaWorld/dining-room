@@ -1,29 +1,160 @@
 #: import NoTransition kivy.uix.screenmanager.NoTransition
 <MainMenuApp>
     amount: amount
+    field: field
     canvas:
         Rectangle:
             source: "Images/backgrounds/background4.jpg"
             pos: self.pos
             size: self.size
     Label:
+        font_size: self.width / 10
         id: amount
         pos: -root.width * 0.32, root.height * 0.40
         text: "приветствуем вас! "
         font_name: "RubikMonoOne-Regular"
-        font_size: 16
+        font_size: self.width / 50
+    Label:
+        pos: root.width * 0.4, root.height * 0.40
+        font_name: "RubikMonoOne-Regular"
+        font_size: self.width / 45
+        text: "Доступ к\nадмин\nпанели"
     Button:
         canvas:
             Rectangle:
                 source: "Images/icons/ic-24-flag.png"
                 pos: self.pos
                 size: self.width, self.height
-        font_name: "Finlandica-Regular"
         size_hint_x: None
         size_hint_y: None
         size: root.width / 10, root.height / 8
-        pos: root.width * 0.3, root.height * 0.40
-        text: "Доступ к \n админ \n панели"
+        pos: root.width * 0.7, root.height * 0.85
+        background_color: (0, 0, 0, 0)
         on_press:
             root.manager.transition = NoTransition()
-            root.manager.current = 'Admin_Login'
+            root.manager.current = 'AdminLog'
+    GridLayout:
+        rows: 5
+        GridLayout:
+            rows: 1
+        GridLayout:
+            rows: 1
+        GridLayout:
+            cols: 2
+            MDTextField:
+                id: field
+                caller: root.ids.choice_button
+                items: [{'text': f'Choice {i}'} for i in range(1, 5)]
+            MDRaisedButton:
+                id: choice_button
+                text: 'Select a choice'
+
+
+        GridLayout:
+            cols: 6
+            Button:
+                canvas:
+                    Rectangle:
+                        source: "Images/icons/ic-24-house.png"
+                        pos: self.pos
+                        size: self.width, self.height
+                size_hint_x: None
+                size_hint_y: None
+                size: root.width / 8, root.height / 6
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
+            Label:
+                text: "\nК точкам"
+                font_size: self.width / 8
+                font_name: "RubikMonoOne-Regular"
+            Button:
+                canvas:
+                    Rectangle:
+                        source: "Images/icons/card-viewfinder.png"
+                        pos: self.pos
+                        size: self.width, self.height
+                size: root.width / 8, root.height / 6
+                size_hint_x: None
+                size_hint_y: None
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
+            Label:
+                font_size: self.width / 8
+                text: "\nК балансу"
+                font_name: "RubikMonoOne-Regular"
+            Button:
+                canvas:
+                    Rectangle:
+                        source: "Images/icons/case-diagram.png"
+                        pos: self.pos
+                        size: self.width, self.height
+                size_hint_x: None
+                size_hint_y: None
+                size: root.width / 8, root.height / 6
+                pos: root.width * 0.7, root.height * 0.85
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
+            Label:
+                font_size: self.width / 8
+                text: "\nАкции \nсегодня"
+                font_name: "RubikMonoOne-Regular"
+        GridLayout:
+            cols: 6
+            Button:
+                canvas:
+                    Rectangle:
+                        source: "Images/icons/umbrella.png"
+                        pos: self.pos
+                        size: self.width, self.height
+                size_hint_x: None
+                size_hint_y: None
+                size: root.width / 8, root.height / 6
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
+            Label:
+                text: "\n Новинки и \n хиты"
+                font_size: self.width / 8
+                font_name: "RubikMonoOne-Regular"
+            Button:
+                canvas:
+                    Rectangle:
+                        source: "Images/icons/ic-24-map.png"
+                        pos: self.pos
+                        size: self.width, self.height
+                size_hint_x: None
+                size_hint_y: None
+                size: root.width / 8, root.height / 6
+                pos: root.width * 0.7, root.height * 0.85
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
+            Label:
+                font_size: self.width / 10
+                text: "\nДля чего\nнужна\nсистема?"
+                font_name: "RubikMonoOne-Regular"
+            Button:
+                canvas:
+                    Rectangle:
+                        source: "Images/icons/sber_icon.png"
+                        pos: self.pos
+                        size: self.width, self.height
+                size: root.width / 8, root.height / 6
+                size_hint_x: None
+                size_hint_y: None
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
+            Label:
+                font_size: self.width / 10
+                text: "\n К другим \n приложениям \n экосистемы"
+                font_name: "RubikMonoOne-Regular"

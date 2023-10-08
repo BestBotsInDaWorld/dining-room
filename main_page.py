@@ -12,13 +12,14 @@ LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts\Finlandica-Regular.ttf')
 
 
-class TestApp(App):
+class TestApp(MDApp):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(LogApp(name='Log'))
         sm.add_widget(RegApp(name='Reg'))
+        sm.add_widget(MainMenuApp(name='Menu'))
         sm.add_widget(AdminLogApp(name="AdminLog"))
-        sm.current = 'AdminLog'
+        sm.current = 'Menu'
         return sm
 
 
