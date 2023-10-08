@@ -37,9 +37,11 @@
                         pos: root.width / 5, self.y + 2
                         radius: [15]
                 hint_text: "Введите имя"
+
             TextInput:
                 id: vital_name
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"
                 text: "Фамилия"
@@ -53,6 +55,7 @@
             TextInput:
                 id: surname
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"
                 text: "Отчество"
@@ -67,6 +70,7 @@
             TextInput:
                 id: last_name
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"
                 text: "Дата рождения"
@@ -80,6 +84,7 @@
             TextInput:
                 id: born
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
         GridLayout:
             cols: 2
             Label:
@@ -167,6 +172,7 @@
             TextInput:
                 id: login
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"               
                 id: check_1
@@ -185,6 +191,7 @@
                 id: password
                 password: True
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 font_name: "RubikMonoOne-Regular"                   
                 id: check_2
@@ -203,8 +210,10 @@
                         radius: [15]
             TextInput:
                 id: confirm_password
+
                 password: True
                 multiline: False
+                background_color: (1, 1, 1, 0.1)
             Label:
                 id: check_3
                 font_name: "RubikMonoOne-Regular" 

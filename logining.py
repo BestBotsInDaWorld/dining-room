@@ -46,5 +46,6 @@ class LogApp(Screen):
                     self.worst_login.text = "Неверный логин или пароль"
                     raise Exception('Неверный логин или пароль')
                 print("ВОШЕЛ")
+                self.empty_line.text = "Вы успешно зарегестрированы!"
         except Exception as ex:
             print(ex)
