@@ -223,6 +223,8 @@
 <LogApp>
     username_input: username_input
     password_input: password_input
+    worst_login: worst_login
+
     canvas:
         Rectangle:
             source: 'Images/backgrounds/background4.jpg'
@@ -231,41 +233,59 @@
     GridLayout:
         row_force_default: True
         col_force_default: True  
-        rows: 5
+        rows: 7
         row_default_height: root.height / 6
         col_default_width: root.width / 2
-        
         pos: root.width/4, -root.height/8
         Label:
             text: 'Вход'
-            font_name: "RubikMonoOne-Regular" 
+            font_name: "RubikMonoOne-Regular"
             size: 400, 400
-            font_size: 50
+            font_size: 100
+        GridLayout:
+            rows: 2
+            Label:
+                id: worst_login
+                font_size: 25
+                font_name: "Finlandica-Regular"
+                text: ""
+            Label:
+                text: ""
         GridLayout:
             rows: 3
+            padding: 10
             TextInput:
                 id: username_input
+                background_color: (1, 1, 1, 0.35)
                 hint_text: 'Имя пользователя'
+            Label:
+                size: (1, .2)
+                text: ""
             TextInput:
                 id: password_input
                 hint_text: 'Пароль'
+                background_color: (1, 1, 1, 0.35)
                 password: True  # Скрыть ввод пароля
+
+        Label:
+            text: ""
         GridLayout:
-            rows: 1
-            Button:
-                font_name: "RubikMonoOne-Regular" 
-                text: 'Войти'
-                on_release: root.entering()
-                font_size: 45
-                background_color: (1, 1, 1, 0.5)
-        GridLayout:
-            size: 50, 50
-            rows: 1
+            rows: 2
+            GridLayout:
+                size: 100, 100
+                rows: 2
+                Button:
+                    font_name: "RubikMonoOne-Regular"
+                    text: 'Войти'
+                    on_release: root.entering()
+                    font_size: 20
+                    background_color: (1, 1, 1, 0.2)
+
             Button:
                 font_name: 'Finlandica-Regular'
                 text: 'Не зарегестрированы? Сделайте это сейчас!'
                 font_size: 16
-                background_color: (1, 1, 1, 0.5)
-                on_press: 
+                background_color: (1, 1, 1, 0)
+                on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'Reg'
