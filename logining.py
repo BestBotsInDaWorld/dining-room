@@ -38,6 +38,7 @@ class LogApp(Screen):
     def entering(self):
         payload = {"login": str(self.username_input.text), "password": str(self.password_input.text)}
         encoded_try = jwt.encode(payload, secret_word, algorithm="HS256")
+
         try:
             with connection.cursor() as cursor:
                 find_query = f"SELECT * FROM `users` WHERE `jwt` = '{encoded_try}'"
