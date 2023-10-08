@@ -22,12 +22,15 @@ from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.screen import MDScreen
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
-Builder.load_file('mainPage.kv')
 
-LabelBase.register(name='RubikMonoOne-Regular',
-                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
-LabelBase.register(name='Finlandica-Regular',
-                   fn_regular=r'fonts\Finlandica-Regular.ttf')
-
-class MainMenuApp(Screen):
-    pass
+Builder.load_file('point_choice.kv')
+class PointChoiceApp(Screen):
+    def __init__(self, **kwargs):
+        super(PointChoiceApp, self).__init__(**kwargs)
+        self.point_choice = DropDown()
+        for index in range(10):
+            btn = Button(text='Value %d' % index, size_hint_y=None, height=44)
+            btn.bind(on_release=lambda btn: self.point_choice.select(btn.text))
+            self.point_choice.add_widget(btn)
+        self.point_button.bind(on_release=self.point_choice.open)
+        self.point_choice.bind(on_select=lambda instance, x: setattr(self.point_button, 'text', x))

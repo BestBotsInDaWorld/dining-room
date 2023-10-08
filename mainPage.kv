@@ -1,7 +1,6 @@
 #: import NoTransition kivy.uix.screenmanager.NoTransition
 <MainMenuApp>
     amount: amount
-    field: field
     canvas:
         Rectangle:
             source: "Images/backgrounds/background4.jpg"
@@ -40,15 +39,7 @@
         GridLayout:
             rows: 1
         GridLayout:
-            cols: 2
-            MDTextField:
-                id: field
-                caller: root.ids.choice_button
-                items: [{'text': f'Choice {i}'} for i in range(1, 5)]
-            MDRaisedButton:
-                id: choice_button
-                text: 'Select a choice'
-
+            cols: 1
 
         GridLayout:
             cols: 6

@@ -2,6 +2,7 @@ from registration import *
 from logining import *
 from main_menu import *
 from adminLogin import *
+from point_choice import *
 from kivymd.uix.screen import MDScreen
 
 
@@ -20,7 +21,8 @@ class TestApp(MDApp):
         sm.add_widget(RegApp(name='Reg'))
         sm.add_widget(MainMenuApp(name='Menu'))
         sm.add_widget(AdminLogApp(name="AdminLog"))
-        sm.current = 'AdminLog'
+        sm.add_widget(PointChoiceApp(name="PointChoice"))
+        sm.current = 'PointChoice'
         return sm
 
 
