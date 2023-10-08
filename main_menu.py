@@ -18,6 +18,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.clock import Clock
 from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
+from kivymd.uix.screen import MDScreen
 
 Builder.load_file('mainPage.kv')
 LabelBase.register(name='RubikMonoOne-Regular',

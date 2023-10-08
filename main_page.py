@@ -2,6 +2,7 @@ from registration import *
 from logining import *
 from main_menu import *
 from adminLogin import *
+from kivymd.uix.screen import MDScreen
 
 
 Builder.load_file('registrate.kv')
@@ -19,7 +20,7 @@ class TestApp(MDApp):
         sm.add_widget(RegApp(name='Reg'))
         sm.add_widget(MainMenuApp(name='Menu'))
         sm.add_widget(AdminLogApp(name="AdminLog"))
-        sm.current = 'Log'
+        sm.current = 'AdminLog'
         return sm
 
 
