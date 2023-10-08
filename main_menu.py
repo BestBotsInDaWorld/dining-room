@@ -15,7 +15,11 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
-Builder.load_file('login.kv')
+from kivy.clock import Clock
+from kivymd.app import MDApp
+from kivymd.uix.menu import MDDropdownMenu
+
+Builder.load_file('mainPage.kv')
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
 LabelBase.register(name='Finlandica-Regular',
