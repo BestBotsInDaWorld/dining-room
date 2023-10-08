@@ -19,7 +19,7 @@ class TestApp(MDApp):
         sm.add_widget(RegApp(name='Reg'))
         sm.add_widget(MainMenuApp(name='Menu'))
         sm.add_widget(AdminLogApp(name="AdminLog"))
-        sm.current = 'Menu'
+        sm.current = 'Log'
         return sm
 
 

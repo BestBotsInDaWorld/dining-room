@@ -1,3 +1,4 @@
+#: import NoTransition kivy.uix.screenmanager.NoTransition
 <Points>
     canvas.before:
         Rectangle:
@@ -43,7 +44,9 @@
                         size: 100, 100
                         pos: self.pos
                 background_color: (0, 0, 0, 0)
-                on_release: root.manager.current = "SomePoint"
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'SomePoint'
 
             Label:
                 text: 'Полины Осипенко, 2'
@@ -68,10 +71,30 @@
     GridLayout:
         size: root.width, root.height
         cols: 1
+        GridLayout:
+            cols: 2
+            rows: 2
 
-        Image:
-            source: ""
+            Image:
+                source: "Images/furniter/table3!!png.png"
 
-        Button:
-            text: "Назад"
-            on_release: root.manager.current = "Points"
+            Image:
+                source: "Images/furniter/table3!!png.png"
+
+            Image:
+                source: "Images/furniter/table3!!png.png"
+
+            Image:
+                source: "Images/furniter/table3!!png.png"
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Меню: пока что ничего нет"
+
+            Button:
+                text: "Назад"
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Points'

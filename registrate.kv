@@ -285,7 +285,7 @@
                 Button:
                     font_name: "RubikMonoOne-Regular"
                     text: 'Войти'
-                    on_release: root.entering()
+                    on_release: if root.entering(): root.manager.current = 'Menu'
                     font_size: 20
                     background_color: (1, 1, 1, 0.2)
 
