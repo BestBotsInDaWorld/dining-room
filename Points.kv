@@ -43,7 +43,7 @@
                         size: 100, 100
                         pos: self.pos
                 background_color: (0, 0, 0, 0)
-                on_press: root.button_polina_osipenko()
+                on_release: root.manager.current = "SomePoint"
 
             Label:
                 text: 'Полины Осипенко, 2'
@@ -57,3 +57,21 @@
 
             Button:
                 text: "Профиль"
+
+<SomePoint>
+    canvas.before:
+        Rectangle:
+            source: "Images/backgrounds/background4.jpg"
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+
+        Image:
+            source: ""
+
+        Button:
+            text: "Назад"
+            on_release: root.manager.current = "Points"
