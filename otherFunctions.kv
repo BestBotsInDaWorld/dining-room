@@ -5,17 +5,25 @@
             source: 'Images/backgrounds/background4.jpg'
             pos: self.pos
             size: self.size
+
     Label:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.1)
+            RoundedRectangle:
+                size: root.width / 1.14, root.height - root.height/1.4
+                pos: root.width / 10, root.height/2.5
+                radius: [15]
         font_name: "RubikMonoOne-Regular"
-        font_size: root.width / 12
-        pos: self.width / 25, self.height / 13
-        text: "Система <Столовая> автоматизирует\nвзаимодействие сотрудников с компанией\nпредоставляющей услуги\nкорпоративного питания. "
+        font_size: self.width/38
+        pos: self.width / 25, self.height /13
+        text: "Система <Столовая> автоматизирует\nвзаимодействие сотрудников с компанией\nпредоставляющей услуги корпоративного\nпитания. "
     Button:
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
         text: "Обратно\nв меню"
-        font_size: root.width / 12
+        font_size: 16
         background_color: (1, 1, 1, 0)
         size: root.width / 8, root.height / 6
         on_press:
