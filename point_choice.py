@@ -46,7 +46,6 @@ class PointChoiceApp(Screen):
                 find_query = f"SELECT * FROM places"
                 cursor.execute(find_query)
                 adress = cursor.fetchall()
-                print(adress)
         except Exception as ex:
             print(ex)
         for index in range(len(adress)):
