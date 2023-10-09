@@ -25,6 +25,15 @@ properties = ["имя", "фамилию", "отчество", "дату рожд
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
 
+try:
+    connection = pymysql.connect(host='37.140.192.80',
+                                 user='u0823922_hakaton',
+                                 password='tB4nG4fN9sqG1vJ9',
+                                 cursorclass=pymysql.cursors.DictCursor,
+                                 database="u0823922_hakaton")
+    print("successfully...")
+except Exception as ex:
+    print(ex)
 
 class wrong_log_check(Exception):
     pass
@@ -47,8 +56,16 @@ class not_chosen(Exception):
 
 
 def check_login(log):
-    pass
-
+    if len(log) == 0:
+        raise wrong_log_check("Выберите другой логин")
+    try:
+        with connection.cursor() as cursor:
+            find_query = f"SELECT * FROM `admin_login` WHERE `login` = '{log}'"
+            cursor.execute(find_query)
+            if len(cursor.fetchall()) != 0:
+                raise wrong_log_check('Выберите другой логин')
+    except wrong_log_check as ex:
+        raise wrong_log_check('Выберите другой логин')
 
 def check_sex(cb1, cb2):
     if cb1.active:
@@ -126,7 +143,7 @@ class RegApp(Screen):
         try:
             check_login(self.login.text)
         except wrong_log_check as log_err:
-            self.check_1.text = log_err
+            self.check_1.text = str(log_err)
             return 0
         try:
             check_password(self.password.text)
@@ -150,4 +167,5 @@ class RegApp(Screen):
         encoded_jwt = jwt.encode(payload, secret_word, algorithm="HS256")
         # aleph = jwt.decode(encoded_jwt, secret_word, algorithms=["HS256"]) дешифратор выдает сразу словарь payload
         databaseconnect.Register_Finish(encoded_jwt, name, surname, last_name, sex, born)
+        databaseconnect.Admin_Register_Finish(login)
         return [encoded_jwt, name, surname, last_name, sex, born]
