@@ -20,3 +20,15 @@ def Register_Finish(encoded_jwt, name, surname, last_name, sex, born):
     except Exception as ex:
         print(1)
         print(ex)
+
+def Admin_Register_Finish(login):
+    try:
+        with connection.cursor() as cursor:
+            zero = ""
+            insert_query = f"INSERT INTO `admin_login` (`jwt_token`, `login`) " \
+                        f"VALUES ('{zero}', '{login}')"
+            cursor.execute(insert_query)
+            connection.commit()
+    except Exception as ex:
+        print(1)
+        print(ex)
