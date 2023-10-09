@@ -8,6 +8,7 @@
             source: 'Images/backgrounds/background4.jpg'
             pos: self.pos
             size: self.size
+
     GridLayout:
         row_force_default: True
         col_force_default: True
@@ -51,3 +52,14 @@
                 on_release: root.check_admin()
                 font_size: self.width / 25
                 background_color: (1, 1, 1, 0.2)
+    Button:
+        size_hint_x: None
+        size_hint_y: None
+        font_name: "RubikMonoOne-Regular"
+        text: "Обратно\nв меню"
+        font_size: 16
+        background_color: (1, 1, 1, 0)
+        size: root.width / 8, root.height / 6
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Menu'
