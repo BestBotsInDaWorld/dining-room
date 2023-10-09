@@ -4,7 +4,6 @@ from main_menu import *
 from adminLogin import *
 from point_choice import *
 from other_functions import *
-from Admin_panel import *
 from kivymd.uix.screen import MDScreen
 
 
@@ -26,7 +25,6 @@ class TestApp(MDApp):
         sm.add_widget(PointChoiceApp(name="PointChoice"))
         sm.add_widget(AboutUsApp(name="AboutUs"))
         sm.add_widget(OtherSystemsApp(name="OtherSystems"))
-        sm.add_widget(AdminPanelApp(name="AdminPanel"))
         sm.current = 'AboutUs'
         return sm
 
