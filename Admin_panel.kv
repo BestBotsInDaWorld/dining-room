@@ -2,26 +2,119 @@
     point_button_add: point_button_add
     point_button_del: point_button_del
     user_button: user_button
+    apply_point_del: apply_point_del
+    apply_user_del: apply_user_del
+    apply_point_add: apply_point_add
     canvas:
         Rectangle:
             source: "Images/backgrounds/background4.jpg"
             pos: self.pos
             size: self.size
 
-    Button:
-        id: point_button_add
+    Label:
         text: 'Добавить точку'
         size_hint: (None, None)
-        pos: (root.width / 6, root.height / 6)
+        pos: (root.width / 7, root.height / 1.15)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
+
+    Label:
+        text: "Удалить точку"
+        size_hint: (None, None)
+        pos: (root.width / 2.2, root.height / 1.15)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
+
+    Label:
+        text: "Удалить пользователя"
+        size_hint: (None, None)
+        pos: (root.width / 1.3, root.height / 1.15)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
 
     Button:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.2)
+            Rectangle:
+                size: root.width / 5.72, root.height / 27
+                pos: root.width / 2.4, root.height / 1.23
+
         id: point_button_del
-        text: 'Удалить точку'
+        text: 'Выбрать точку'
         size_hint: (None, None)
-        pos: (600, 600)
+        size: root.width / 12, root.height / 27
+        pos: (root.width / 2.15, root.height / 1.23)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
 
     Button:
-        id: user_button
-        text: 'Удалить пользователя'
+        id: apply_point_del
+        text: "Удалить"
         size_hint: (None, None)
-        pos: (400, 400)
+        size: root.width / 10, root.height / 27
+        pos: (root.width / 2.2, root.height / 1.5)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
+
+    Button:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.2)
+            Rectangle:
+                size: root.width / 3.6, root.height / 27
+                pos: root.width / 1.48, root.height / 1.23
+
+        id: user_button
+        text: 'Выбрать пользователя'
+        size_hint: (None, None)
+        size: root.width / 5.6, root.height / 27
+        pos: (root.width / 1.37, root.height / 1.23)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
+
+    Button:
+        id: apply_user_del
+        text: "Удалить"
+        size_hint: (None, None)
+        size: root.width / 10, root.height / 27
+        pos: (root.width / 1.3, root.height / 1.5)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50
+
+    Button:
+        text: "Назад в меню"
+        size_hint: (None, None)
+        size: root.width / 5.6, root. height / 27
+        pos: (root.width / 2.2, root.height / 11)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 1)
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Menu'
+
+    TextInput:
+        id: point_button_add
+        hint_text: "Введите точку"
+        size_hint: (None, None)
+        size: 260, 30
+        pos: (root.width / 11, root.height / 1.23)
+        font_name: "RubikMonoOne-Regular"
+        font_size: root.height / 50
+
+    Button:
+        id: apply_point_add
+        text: "Добавить"
+        size_hint: (None, None)
+        size: root.width / 8, root.height / 27
+        pos: (root.width / 7, root.height / 1.5)
+        font_name: "RubikMonoOne-Regular"
+        background_color: (0, 0, 0, 0)
+        font_size: root.height / 50

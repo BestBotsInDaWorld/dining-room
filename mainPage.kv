@@ -35,7 +35,7 @@
         background_color: (0, 0, 0, 0)
         on_press:
             root.manager.transition = NoTransition()
-            root.manager.current = 'AdminLog'
+            root.manager.current = 'AdminPanel'
     GridLayout:
         rows: 5
         GridLayout:
@@ -59,7 +59,7 @@
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'PointChoice'
+                    root.manager.current = 'Points'
             Button:
                 text: "\nК точкам"
                 font_size: self.width / 8
@@ -67,7 +67,7 @@
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'PointChoice'
+                    root.manager.current = 'Points'
             Button:
                 canvas:
                     Rectangle:
