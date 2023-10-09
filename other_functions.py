@@ -42,7 +42,8 @@ class OtherSystemsApp(Screen):
 
 
 class BalanceApp(Screen):
-    pass
+    def update_balance(self, res):
+        self.user_balance.text = f"{res}"
 
 
 def isfloat(num):
@@ -64,11 +65,15 @@ class DepositApp(Screen):
                     print(float(self.deposit.text))
                     find_query = f"SELECT balance FROM users WHERE jwt='{encoded_try}'"
                     cursor.execute(find_query)
-                    summ = cursor.fetchall()
+                    summ = cursor.fetchall()[0]["balance"]
                     print(summ)
-                    update_query = f"UPDATE `users` SET `balance`='{float(self.deposit.text)}' WHERE jwt ='{encoded_try}'"
+                    ress = float(self.deposit.text) + summ
+                    update_query = f"UPDATE `users` SET `balance`='{ress}' WHERE jwt ='{encoded_try}'"
                     cursor.execute(update_query)
                     connection.commit()
+
+                    self.deposit.text = ""
+                    BalanceApp.update_balance(res=ress)
             except Exception as ex:
                 print(ex)
         else:
