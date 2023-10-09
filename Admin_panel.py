@@ -39,7 +39,7 @@ class AdminPanelApp(Screen):
 
     def __init__(self, **kwargs):
         super(AdminPanelApp, self).__init__(**kwargs)
-        self.point_choice_add = DropDown()
+        self.point_choice_del = DropDown()
         adress = []
         try:
             with connection.cursor() as cursor:
@@ -50,10 +50,10 @@ class AdminPanelApp(Screen):
             print(ex)
         for index in range(len(adress)):
             btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44)
-            btn.bind(on_release=lambda btn: self.point_choice_add.select(btn.text))
-            self.point_choice_add.add_widget(btn)
-        self.point_button_add.bind(on_release=self.point_choice_add.open)
-        self.point_choice_add.bind(on_select=lambda instance, x: setattr(self.point_button_add, 'text', x))
+            btn.bind(on_release=lambda btn: self.point_choice_del.select(btn.text))
+            self.point_choice_del.add_widget(btn)
+        self.point_button_del.bind(on_release=self.point_choice_del.open)
+        self.point_choice_del.bind(on_select=lambda instance, x: setattr(self.point_button_del, 'text', x))
 
         self.user_choice = DropDown()
         users = []
