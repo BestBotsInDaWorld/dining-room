@@ -25,7 +25,7 @@ class TestApp(MDApp):
         sm.add_widget(PointChoiceApp(name="PointChoice"))
         sm.add_widget(AboutUsApp(name="AboutUs"))
         sm.add_widget(OtherSystemsApp(name="OtherSystems"))
-        sm.current = 'Reg'
+        sm.current = 'Menu'
         return sm
 
 

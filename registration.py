@@ -56,7 +56,6 @@ class not_chosen(Exception):
 
 
 def check_login(log):
-    print(log)
     if len(log) == 0:
         raise wrong_log_check("Выберите другой логин")
     try:
