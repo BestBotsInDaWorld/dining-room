@@ -38,7 +38,6 @@ class AdminLogApp(Screen):
         payload = {"login": str(self.username_input.text), "password": str(self.password_input.text)}
 
         jwt_token = jwt.encode(payload, "sberbank",  algorithm="HS256")
-        print(jwt_token)
         try:
             with connection.cursor() as cursor:
                 find_query = f"SELECT * FROM `admin_login` WHERE `jwt_token` = '{str(jwt_token)}'"
@@ -48,5 +47,7 @@ class AdminLogApp(Screen):
                     self.worst_login.text = "Неверный логин или пароль"
                     raise Exception()
                 self.worst_login.text = "Зашел"
+                return 1
         except Exception as ex:
             print(ex)
+            return 0
