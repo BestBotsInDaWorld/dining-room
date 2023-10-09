@@ -28,6 +28,8 @@ LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts\Finlandica-Regular.ttf')
+LabelBase.register(name='MartianMono-SemiBold',
+                   fn_regular=r'fonts/MartianMono-SemiBold.ttf')
 
 class MainMenuApp(Screen):
     pass

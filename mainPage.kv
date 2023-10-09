@@ -13,11 +13,15 @@
         text: "приветствуем вас! "
         font_name: "RubikMonoOne-Regular"
         font_size: self.width / 50
-    Label:
+    Button:
         pos: root.width * 0.4, root.height * 0.40
         font_name: "RubikMonoOne-Regular"
         font_size: self.width / 45
         text: "Доступ к\nадмин\nпанели"
+        background_color: (0, 0, 0, 0)
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'AdminLog'
     Button:
         canvas:
             Rectangle:
@@ -46,9 +50,9 @@
             Button:
                 canvas:
                     Rectangle:
-                        source: "Images/icons/ic-24-house.png"
+                        source: "Images/icons/atm-banknote.png"
                         pos: self.pos
-                        size: self.width, self.height
+                        size: self.width / 1.2, self.height / 1.2
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
@@ -56,33 +60,41 @@
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'PointChoice'
-            Label:
+            Button:
                 text: "\nК точкам"
-                font_size: self.width / 8
+                font_size: self.width / 6
                 font_name: "RubikMonoOne-Regular"
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'PointChoice'
             Button:
                 canvas:
                     Rectangle:
                         source: "Images/icons/card-viewfinder.png"
                         pos: self.pos
-                        size: self.width, self.height
+                        size: self.width / 1.2, self.height / 1.2
                 size: root.width / 8, root.height / 6
                 size_hint_x: None
                 size_hint_y: None
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'Admin_Login'
-            Label:
-                font_size: self.width / 8
+                    root.manager.current = 'Balance'
+            Button:
+                font_size: self.width / 6
                 text: "\nК балансу"
                 font_name: "RubikMonoOne-Regular"
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Balance'
             Button:
                 canvas:
                     Rectangle:
                         source: "Images/icons/case-diagram.png"
                         pos: self.pos
-                        size: self.width, self.height
+                        size: self.width / 1.2, self.height / 1.2
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
@@ -91,10 +103,14 @@
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'Admin_Login'
-            Label:
+            Button:
                 font_size: self.width / 8
-                text: "\nАкции \nсегодня"
+                text: "\n\nАкции \nсегодня"
                 font_name: "RubikMonoOne-Regular"
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
         GridLayout:
             cols: 6
             Button:
@@ -102,7 +118,7 @@
                     Rectangle:
                         source: "Images/icons/umbrella.png"
                         pos: self.pos
-                        size: self.width, self.height
+                        size: self.width / 1.2, self.height / 1.2
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
@@ -110,16 +126,21 @@
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'Admin_Login'
-            Label:
-                text: "\n Новинки и \n хиты"
+            Button:
                 font_size: self.width / 8
+                text: "\nНовинки и \nхиты"
                 font_name: "RubikMonoOne-Regular"
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'Admin_Login'
             Button:
                 canvas:
                     Rectangle:
                         source: "Images/icons/ic-24-map.png"
                         pos: self.pos
-                        size: self.width, self.height
+                        size: self.width / 1.2, self.height / 1.2
+
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
@@ -128,24 +149,33 @@
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'AboutUs'
-            Label:
+            Button:
                 font_size: self.width / 10
                 text: "\nДля чего\nнужна\nсистема?"
                 font_name: "RubikMonoOne-Regular"
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'AboutUs'
             Button:
                 canvas:
                     Rectangle:
-                        source: "Images/icons/sber_icon.png"
-                        pos: self.pos
-                        size: self.width, self.height
-                size: root.width / 8, root.height / 6
+                        source: "Images/icons/arrow-right-uturn.png"
+                        pos: self.x, self.y
+                        size: self.width / 1.2, self.height / 1.2
                 size_hint_x: None
                 size_hint_y: None
+                size: root.width / 8, root.height / 6
+                pos: root.width * 0.7, root.height * 0.85
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'OtherSystems'
-            Label:
+            Button:
                 font_size: self.width / 10
-                text: "\n К другим \n приложениям \n экосистемы"
+                text: "\nК другим \nприложениям \nэкосистемы"
                 font_name: "RubikMonoOne-Regular"
+                background_color: (0, 0, 0, 0)
+                on_press:
+                    root.manager.transition = NoTransition()
+                    root.manager.current = 'OtherSystems'
