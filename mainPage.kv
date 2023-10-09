@@ -51,7 +51,7 @@
                 canvas:
                     Rectangle:
                         source: "Images/icons/atm-banknote.png"
-                        pos: self.pos
+                        pos: self.width * 0.2, self.y * 1.03
                         size: self.width / 1.2, self.height / 1.2
                 size_hint_x: None
                 size_hint_y: None
@@ -62,7 +62,7 @@
                     root.manager.current = 'PointChoice'
             Button:
                 text: "\nК точкам"
-                font_size: self.width / 6
+                font_size: self.width / 8
                 font_name: "RubikMonoOne-Regular"
                 background_color: (0, 0, 0, 0)
                 on_press:
@@ -72,8 +72,8 @@
                 canvas:
                     Rectangle:
                         source: "Images/icons/card-viewfinder.png"
-                        pos: self.pos
-                        size: self.width / 1.2, self.height / 1.2
+                        pos: self.x * 1.12, self.y * 1.1
+                        size: self.width / 1.4, self.height / 1.4
                 size: root.width / 8, root.height / 6
                 size_hint_x: None
                 size_hint_y: None
@@ -82,8 +82,8 @@
                     root.manager.transition = NoTransition()
                     root.manager.current = 'Balance'
             Button:
-                font_size: self.width / 6
-                text: "\nК балансу"
+                font_size: self.width / 8
+                text: "\n  К балансу"
                 font_name: "RubikMonoOne-Regular"
                 background_color: (0, 0, 0, 0)
                 on_press:
@@ -94,17 +94,17 @@
                     Rectangle:
                         source: "Images/icons/case-diagram.png"
                         pos: self.pos
-                        size: self.width / 1.2, self.height / 1.2
+                        pos: self.x * 1.07, self.y * 1.1
+                        size: self.width / 1.4, self.height / 1.4
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
-                pos: root.width * 0.7, root.height * 0.85
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
                     root.manager.current = 'Admin_Login'
             Button:
-                font_size: self.width / 8
+                font_size: self.width / 10
                 text: "\n\nАкции \nсегодня"
                 font_name: "RubikMonoOne-Regular"
                 background_color: (0, 0, 0, 0)
@@ -117,8 +117,8 @@
                 canvas:
                     Rectangle:
                         source: "Images/icons/umbrella.png"
-                        pos: self.pos
-                        size: self.width / 1.2, self.height / 1.2
+                        pos: self.width * 0.2, self.height * 0.14
+                        size: self.width / 1.4, self.height / 1.4
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
@@ -128,7 +128,7 @@
                     root.manager.current = 'Admin_Login'
             Button:
                 font_size: self.width / 8
-                text: "\nНовинки и \nхиты"
+                text: "\n Новинки и \n хиты"
                 font_name: "RubikMonoOne-Regular"
                 background_color: (0, 0, 0, 0)
                 on_press:
@@ -138,8 +138,8 @@
                 canvas:
                     Rectangle:
                         source: "Images/icons/ic-24-map.png"
-                        pos: self.pos
-                        size: self.width / 1.2, self.height / 1.2
+                        pos: self.x * 1.12, self.height * 0.14
+                        size: self.width / 1.4, self.height / 1.4
 
                 size_hint_x: None
                 size_hint_y: None
@@ -161,7 +161,7 @@
                 canvas:
                     Rectangle:
                         source: "Images/icons/arrow-right-uturn.png"
-                        pos: self.x, self.y
+                        pos: self.x * 1.05, self.y
                         size: self.width / 1.2, self.height / 1.2
                 size_hint_x: None
                 size_hint_y: None
@@ -173,7 +173,7 @@
                     root.manager.current = 'OtherSystems'
             Button:
                 font_size: self.width / 10
-                text: "\nК другим \nприложениям \nэкосистемы"
+                text: "\n К другим \n приложениям \n экосистемы"
                 font_name: "RubikMonoOne-Regular"
                 background_color: (0, 0, 0, 0)
                 on_press:

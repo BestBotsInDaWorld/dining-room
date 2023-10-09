@@ -29,7 +29,7 @@ class TestApp(MDApp):
         sm.add_widget(AdminPanelApp(name="AdminPanel"))
         sm.add_widget(BalanceApp(name="Balance"))
         sm.add_widget(DepositApp(name="Deposit"))
-        sm.current = 'Reg'
+        sm.current = 'Menu'
         return sm
 
 
