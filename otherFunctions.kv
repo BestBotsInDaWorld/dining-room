@@ -56,7 +56,6 @@
             pos: self.pos
             size: self.size
     Label:
-
         canvas.before:
             Color:
                 rgba: (1, 1, 1, 0.1)
@@ -96,6 +95,20 @@
             on_press:
                 root.manager.transition = NoTransition()
                 root.manager.current = 'Deposit'
+    Label:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.1)
+            RoundedRectangle:
+                size: root.width / 4, root.height - root.height/1.2
+                pos: root.width / 2.5, root.height/40
+                radius: [15]
+        Button:
+            text: "Обновить\n баланс"
+            font_name: "RubikMonoOne-Regular"
+            pos: root.width / 2.15, root.height/35
+            background_color: (1, 1, 1, 0)
+            on_press: update_balance()
 
     Label:
         canvas.before:

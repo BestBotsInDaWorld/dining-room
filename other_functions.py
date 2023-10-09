@@ -33,6 +33,7 @@ try:
 except Exception as ex:
     print(ex)
 
+
 class AboutUsApp(Screen):
     pass
 
@@ -86,4 +87,3 @@ class DepositApp(Screen):
                 print(ex)
         else:
             print("else")
-
