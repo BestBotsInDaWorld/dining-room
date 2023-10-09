@@ -55,8 +55,6 @@
             source: 'Images/backgrounds/background4.jpg'
             pos: self.pos
             size: self.size
-
-
     Label:
 
         canvas.before:
@@ -95,6 +93,10 @@
             font_name: "RubikMonoOne-Regular"
             pos: root.width / 3, root.height/5
             background_color: (1, 1, 1, 0)
+            on_press:
+                root.manager.transition = NoTransition()
+                root.manager.current = 'Deposit'
+
     Label:
         canvas.before:
             Color:
@@ -108,6 +110,45 @@
             font_name: "RubikMonoOne-Regular"
             pos: root.width / 1.7, root.height/5
             background_color: (1, 1, 1, 0)
+    Button:
+        size_hint_x: None
+        size_hint_y: None
+        font_name: "RubikMonoOne-Regular"
+        text: "Обратно\nв меню"
+        font_size: 16
+        background_color: (1, 1, 1, 0)
+        size: root.width / 8, root.height / 6
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Menu'
+
+<DepositApp>
+    deposit: deposit
+    canvas:
+        Rectangle:
+            source: 'Images/backgrounds/background4.jpg'
+            pos: self.pos
+            size: self.size
+    Label:
+        TextInput:
+            hint_text: "Введите сумму"
+            id: deposit
+            size: root.width / 2, root.height / 20
+            pos: root.width / 3.8, root.height/1.5
+    Label:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.1)
+            RoundedRectangle:
+                size: root.width / 4, root.height - root.height/1.2
+                pos: root.width / 2.6, root.height/2.5
+                radius: [15]
+        Button:
+            text: "Подтвердить"
+            font_name: "RubikMonoOne-Regular"
+            pos: root.width / 2.2, root.height/2.5
+            background_color: (1, 1, 1, 0)
+            on_press: root.confirm_deposit()
     Button:
         size_hint_x: None
         size_hint_y: None

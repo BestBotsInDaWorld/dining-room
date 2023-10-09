@@ -15,6 +15,7 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
+import pymysql
 Builder.load_file('otherFunctions.kv')
 
 LabelBase.register(name='RubikMonoOne-Regular',
@@ -22,6 +23,15 @@ LabelBase.register(name='RubikMonoOne-Regular',
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts\Finlandica-Regular.ttf')
 
+try:
+    connection = pymysql.connect(host='37.140.192.80',
+                                 user='u0823922_hakaton',
+                                 password='tB4nG4fN9sqG1vJ9',
+                                 cursorclass=pymysql.cursors.DictCursor,
+                                 database="u0823922_hakaton")
+    print("successfully...")
+except Exception as ex:
+    print(ex)
 
 class AboutUsApp(Screen):
     pass
@@ -33,3 +43,34 @@ class OtherSystemsApp(Screen):
 
 class BalanceApp(Screen):
     pass
+
+
+def isfloat(num):
+    try:
+        float(str(num))
+        return True
+    except ValueError:
+        return False
+
+
+class DepositApp(Screen):
+    def confirm_deposit(self):
+        from logining import encoded_try
+        print(encoded_try)
+
+        if isfloat(str(self.deposit.text)):
+            try:
+                with connection.cursor() as cursor:
+                    print(float(self.deposit.text))
+                    find_query = f"SELECT balance FROM users WHERE jwt='{encoded_try}'"
+                    cursor.execute(find_query)
+                    summ = cursor.fetchall()
+                    print(summ)
+                    update_query = f"UPDATE `users` SET `balance`='{float(self.deposit.text)}' WHERE jwt ='{encoded_try}'"
+                    cursor.execute(update_query)
+                    connection.commit()
+            except Exception as ex:
+                print(ex)
+        else:
+            print("else")
+

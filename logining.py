@@ -19,6 +19,8 @@ from databaseconnect import *
 import pymysql
 
 
+encoded_try = ""
+
 secret_word = "sberbank"
 try:
     connection = pymysql.connect(host='37.140.192.80',
@@ -38,6 +40,7 @@ LabelBase.register(name='Finlandica-Regular',
 
 class LogApp(Screen):
     def entering(self):
+        global encoded_try
         payload = {"login": str(self.username_input.text), "password": str(self.password_input.text)}
         encoded_try = jwt.encode(payload, secret_word, algorithm="HS256")
 
@@ -49,6 +52,7 @@ class LogApp(Screen):
                     self.worst_login.text = "Неверный логин или пароль"
                     raise Exception('Неверный логин или пароль')
                     return 0
+                print(encoded_try)
                 return 1
         except Exception as ex:
             print(ex)
