@@ -1,0 +1,28 @@
+<AdminPanelApp>
+    point_button_add: point_button_add
+    point_button_del: point_button_del
+    user_button: user_button
+    canvas:
+        Rectangle:
+            source: "Images/backgrounds/background4.jpg"
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        cols: 1
+        Button:
+            id: point_button_add
+            text: 'Добавить точку'
+            size_hint: (None, None)
+            pos: (200, 200)
+
+        Button:
+            id: point_button_del
+            text: 'Удалить точку'
+            size_hint: (None, None)
+            pos: (200, 200)
+
+        Button:
+            id: user_button
+            text: 'Удалить пользователя'
+            size_hint: (None, None)
+            pos: (200, 200)
