@@ -23,6 +23,10 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 import pymysql
+
+LabelBase.register(name='RubikMonoOne-Regular',
+                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
+
 try:
     connection = pymysql.connect(host='37.140.192.80',
                                  user='u0823922_hakaton',
@@ -54,6 +58,7 @@ class AdminPanelApp(Screen):
             self.point_choice_del.add_widget(btn)
         self.point_button_del.bind(on_release=self.point_choice_del.open)
         self.point_choice_del.bind(on_select=lambda instance, x: setattr(self.point_button_del, 'text', x))
+
 
         self.user_choice = DropDown()
         users = []
