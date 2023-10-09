@@ -42,8 +42,16 @@ class OtherSystemsApp(Screen):
 
 
 class BalanceApp(Screen):
-    def update_balance(self, res):
-        self.user_balance.text = f"{res}"
+    def update_balance(self):
+        from logining import encoded_try
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT * FROM `users` WHERE jwt='{encoded_try}'"
+                cursor.execute(find_query)
+                user = cursor.fetchall()
+                self.user_balance.text = f"{user['balance']} руб."
+        except Exception as ex:
+            print(ex)
 
 
 def isfloat(num):
@@ -73,7 +81,7 @@ class DepositApp(Screen):
                     connection.commit()
 
                     self.deposit.text = ""
-                    BalanceApp.update_balance(res=ress)
+
             except Exception as ex:
                 print(ex)
         else:
