@@ -7,22 +7,21 @@
             source: "Images/backgrounds/background4.jpg"
             pos: self.pos
             size: self.size
-    GridLayout:
-        cols: 1
-        Button:
-            id: point_button_add
-            text: 'Добавить точку'
-            size_hint: (None, None)
-            pos: (200, 200)
 
-        Button:
-            id: point_button_del
-            text: 'Удалить точку'
-            size_hint: (None, None)
-            pos: (200, 200)
+    Button:
+        id: point_button_add
+        text: 'Добавить точку'
+        size_hint: (None, None)
+        pos: (root.width / 6, root.height / 6)
 
-        Button:
-            id: user_button
-            text: 'Удалить пользователя'
-            size_hint: (None, None)
-            pos: (200, 200)
+    Button:
+        id: point_button_del
+        text: 'Удалить точку'
+        size_hint: (None, None)
+        pos: (600, 600)
+
+    Button:
+        id: user_button
+        text: 'Удалить пользователя'
+        size_hint: (None, None)
+        pos: (400, 400)
