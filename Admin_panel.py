@@ -20,8 +20,10 @@ from kivymd.app import MDApp
 from kivy.metrics import dp
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.screen import MDScreen
+from kivy.core.window import Window
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
+from databaseconnect import *
 import pymysql
 
 LabelBase.register(name='RubikMonoOne-Regular',
@@ -47,32 +49,42 @@ class AdminPanelApp(Screen):
         adress = []
         try:
             with connection.cursor() as cursor:
-                find_query = f"SELECT * FROM places"
+                find_query = f"SELECT * FROM points"
                 cursor.execute(find_query)
                 adress = cursor.fetchall()
+
         except Exception as ex:
             print(ex)
         for index in range(len(adress)):
-            btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44)
+
+            btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44, font_size=Window.width / 55)
+            print(adress[index]["Adress"])
             btn.bind(on_release=lambda btn: self.point_choice_del.select(btn.text))
             self.point_choice_del.add_widget(btn)
         self.point_button_del.bind(on_release=self.point_choice_del.open)
         self.point_choice_del.bind(on_select=lambda instance, x: setattr(self.point_button_del, 'text', x))
-
-
-        self.user_choice = DropDown()
+        self.user_choice_del = DropDown()
+        zero = ''
         users = []
         try:
             with connection.cursor() as cursor:
-                find_query = f"SELECT * FROM admin_login"
+
+                find_query = f"SELECT * FROM `admin_login` WHERE `jwt_token` = '{zero}'"
                 cursor.execute(find_query)
                 users = cursor.fetchall()
         except Exception as ex:
             print(ex)
         for index in range(len(users)):
-            btn = Button(text=users[index]["login"], size_hint_y=None, height=44)
-            btn.bind(on_release=lambda btn: self.user_choice.select(btn.text))
-            self.user_choice.add_widget(btn)
-        self.user_button.bind(on_release=self.user_choice.open)
-        self.user_choice.bind(on_select=lambda instance, x: setattr(self.user_button, 'text', x))
+            btn = Button(text=users[index]["login"], size_hint_y=None, height=44, font_size=Window.width / 55)
+            btn.bind(on_release=lambda btn: self.user_choice_del.select(btn.text))
+            self.user_choice_del.add_widget(btn)
+        self.user_button_del.bind(on_release=self.user_choice_del.open)
+        self.user_choice_del.bind(on_select=lambda instance, x: setattr(self.user_button_del, 'text', x))
+    def add_point(self):
+        Point_Add(str(self.point_button_add.text))
 
+    def remove_point(self):
+        Point_Remove(str(self.point_button_del.text))
+
+    def remove_user(self):
+        User_Remove(str(self.user_button_del.text))

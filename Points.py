@@ -22,25 +22,14 @@ from databaseconnect import *
 Builder.load_file("Points.kv")
 
 
-class Points(Screen):
-    def button_novobulvarnaya(self):
-        pass
-
-    def button_balyabina(self):
-        pass
-
-    def button_polina_osipenko(self):
-        pass
-
-
-class SomePoint(Screen):
+class SomePointApp(Screen):
     pass
 
 
 class PointsApp(Screen):
     def build(self):
         sm = ScreenManager()
-        sm.add_widget(SomePoint(name='SomePoint'))
-        sm.add_widget(Points(name='Points'))
+        sm.add_widget(SomePointApp(name='SomePoint'))
+        sm.add_widget(PointsApp(name='Points'))
         sm.current = 'Points'
         return sm

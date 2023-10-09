@@ -30,9 +30,9 @@ class TestApp(MDApp):
         sm.add_widget(AdminPanelApp(name="AdminPanel"))
         sm.add_widget(BalanceApp(name="Balance"))
         sm.add_widget(DepositApp(name="Deposit"))
-        sm.add_widget(Points(name="Points"))
-        sm.add_widget(SomePoint(name="SomePoint"))
-        sm.current = 'Reg'
+        sm.add_widget(PointsApp(name="Points"))
+        sm.add_widget(SomePointApp(name="SomePoint"))
+        sm.current = 'AdminPanel'
         return sm
 
 

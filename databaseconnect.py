@@ -32,3 +32,35 @@ def Admin_Register_Finish(login):
     except Exception as ex:
         print(1)
         print(ex)
+
+def Point_Add(point):
+    try:
+        with connection.cursor() as cursor:
+            insert_query = f"INSERT INTO `points` (`Adress`, `tables`) " \
+                        f"VALUES ('{point}', '0, 0')"
+            cursor.execute(insert_query)
+            connection.commit()
+    except Exception as ex:
+        print(1)
+        print(ex)
+
+def Point_Remove(point):
+    try:
+        with connection.cursor() as cursor:
+            remove_query = f"DELETE FROM `points`" \
+                           f"WHERE `Adress` = '{point}'"
+            cursor.execute(remove_query)
+            connection.commit()
+    except Exception as ex:
+        print(1)
+        print(ex)
+def User_Remove(user):
+    try:
+        with connection.cursor() as cursor:
+            remove_query = f"DELETE FROM `admin_login`" \
+                        f"WHERE `login` = '{user}'"
+            cursor.execute(remove_query)
+            connection.commit()
+    except Exception as ex:
+        print(1)
+        print(ex)

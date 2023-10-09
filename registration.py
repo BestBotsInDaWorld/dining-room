@@ -16,7 +16,6 @@ from kivy.config import Config
 from kivy.core.text import LabelBase
 from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen
-import databaseconnect
 from databaseconnect import *
 
 secret_word = "sberbank"
