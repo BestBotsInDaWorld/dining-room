@@ -48,12 +48,66 @@
         on_press:
             root.manager.transition = NoTransition()
             root.manager.current = 'Menu'
-<Balance>
+<BalanceApp>
+    user_balance: user_balance
     canvas:
         Rectangle:
             source: 'Images/backgrounds/background4.jpg'
             pos: self.pos
             size: self.size
+
+
+    Label:
+
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.1)
+            RoundedRectangle:
+                size: root.width / 2, root.height - root.height/1.8
+                pos: root.width / 3.8, root.height/2.3
+                radius: [15]
+        canvas:
+            Rectangle:
+                source: 'Images/icons/card.png'
+                pos: self.pos[0] * 13.5, self.pos[1] * 12
+                size: self.width/3.5, self.height/4
+        id: user_balance
+        font_name: "RubikMonoOne-Regular"
+        font_size: self.width/35
+        pos: self.width / 35, self.height /20
+        text: "2.56 руб."
+    Label:
+        text: "Карта в рублях"
+        font_name: "MartianMono-SemiBold"
+        font_size: self.width/55
+        pos: self.width / 50, self.height /65
+        color: (71/255, 71/255, 71/255, 0.8)
+    Label:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.1)
+            RoundedRectangle:
+                size: root.width / 4, root.height - root.height/1.2
+                pos: root.width / 3.8, root.height/5
+                radius: [15]
+        Button:
+            text: "Пополнить"
+            font_name: "RubikMonoOne-Regular"
+            pos: root.width / 3, root.height/5
+            background_color: (1, 1, 1, 0)
+    Label:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.1)
+            RoundedRectangle:
+                size: root.width / 4, root.height - root.height/1.2
+                pos: root.width / 1.9, root.height/5
+                radius: [15]
+        Button:
+            text: "Вывести"
+            font_name: "RubikMonoOne-Regular"
+            pos: root.width / 1.7, root.height/5
+            background_color: (1, 1, 1, 0)
     Button:
         size_hint_x: None
         size_hint_y: None

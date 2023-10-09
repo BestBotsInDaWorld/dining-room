@@ -22,8 +22,14 @@ LabelBase.register(name='RubikMonoOne-Regular',
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts\Finlandica-Regular.ttf')
 
+
 class AboutUsApp(Screen):
     pass
 
+
 class OtherSystemsApp(Screen):
+    pass
+
+
+class BalanceApp(Screen):
     pass
