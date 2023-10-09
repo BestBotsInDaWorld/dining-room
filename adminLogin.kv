@@ -50,8 +50,7 @@
                 font_name: "RubikMonoOne-Regular"
                 text: 'Войти'
                 on_release:
-                    if root.check_admin():
-                        root.manager.current = 'AdminPanel'
+                    if root.check_admin(): root.manager.current = 'AdminPanel'
                 font_size: self.width / 25
                 background_color: (1, 1, 1, 0.2)
     Button:
@@ -62,6 +61,6 @@
         font_size: 16
         background_color: (1, 1, 1, 0)
         size: root.width / 8, root.height / 6
-        on_press:
+        on_release:
             root.manager.transition = NoTransition()
             root.manager.current = 'Menu'

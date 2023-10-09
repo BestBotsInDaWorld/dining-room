@@ -32,7 +32,7 @@ class TestApp(MDApp):
         sm.add_widget(DepositApp(name="Deposit"))
         sm.add_widget(PointsApp(name="Points"))
         sm.add_widget(SomePointApp(name="SomePoint"))
-        sm.current = 'Log'
+        sm.current = 'AdminPanel'
         return sm
 
 

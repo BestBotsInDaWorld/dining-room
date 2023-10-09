@@ -165,6 +165,6 @@ class RegApp(Screen):
         }
         encoded_jwt = jwt.encode(payload, secret_word, algorithm="HS256")
         # aleph = jwt.decode(encoded_jwt, secret_word, algorithms=["HS256"]) дешифратор выдает сразу словарь payload
-        databaseconnect.Register_Finish(encoded_jwt, name, surname, last_name, sex, born)
-        databaseconnect.Admin_Register_Finish(login)
+        Register_Finish(encoded_jwt, name, surname, last_name, sex, born)
+        Admin_Register_Finish(login)
         return [encoded_jwt, name, surname, last_name, sex, born]
