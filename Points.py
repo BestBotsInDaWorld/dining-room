@@ -37,14 +37,10 @@ class SomePoint(Screen):
     pass
 
 
-class PointsApp(App):
+class PointsApp(Screen):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(SomePoint(name='SomePoint'))
         sm.add_widget(Points(name='Points'))
         sm.current = 'Points'
         return sm
-
-
-if __name__ == "__main__":
-    PointsApp().run()
