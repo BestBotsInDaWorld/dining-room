@@ -23,6 +23,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 import pymysql
+
 try:
     connection = pymysql.connect(host='37.140.192.80',
                                  user='u0823922_hakaton',
@@ -33,13 +34,12 @@ try:
 except Exception as ex:
     print(ex)
 Builder.load_file('point_choice.kv')
-
-
+adress = ""
 class PointChoiceApp(Screen):
 
-    def select_point(self, **kwargs):
+    def __init__(self, **kwargs):
         super(PointChoiceApp, self).__init__(**kwargs)
-        self.point_choice = DropDown()
+        self.point_choosing = DropDown()
         adress = []
         try:
             with connection.cursor() as cursor:
@@ -50,7 +50,24 @@ class PointChoiceApp(Screen):
             print(ex)
         for index in range(len(adress)):
             btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44)
-            btn.bind(on_release=lambda btn: self.point_choice.select(btn.text))
-            self.point_choice.add_widget(btn)
-        self.point_button_select.bind(on_release=self.point_choice.open)
-        self.point_button_select.bind(on_select=lambda instance, x: setattr(self.point_button, 'text', x))
+            btn.bind(on_release=lambda btn: self.point_choosing.select(btn.text))
+            self.point_choosing.add_widget(btn)
+        self.point_button_select.bind(on_release=self.point_choosing.open)
+        self.point_choosing.bind(on_select=lambda instance, x: setattr(self.point_button_select, 'text', x))
+
+    def select_button(self):
+        global adress
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT * FROM points"
+                cursor.execute(find_query)
+                adres = cursor.fetchall()
+                for i in range(len(adres)):
+                    if adres[i]['Adress'] == self.point_button_select.text:
+                        adress = adres[i]['Adress']
+                        return 1
+                return 0
+        except Exception as ex:
+            print(ex)
+
+

@@ -36,7 +36,7 @@ def Point_Add(point):
     try:
         with connection.cursor() as cursor:
             insert_query = f"INSERT INTO `points` (`Adress`, `tables`) " \
-                        f"VALUES ('{point}', '0, 0')"
+                        f"VALUES ('{point}', '0, 0, 0, 0')"
             cursor.execute(insert_query)
             connection.commit()
     except Exception as ex:

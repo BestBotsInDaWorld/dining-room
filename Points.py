@@ -23,13 +23,16 @@ Builder.load_file("Points.kv")
 
 
 class SomePointApp(Screen):
-    pass
+    def check_not_occupied(self):
+        from point_choice import adress
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
+                cursor.execute(find_query)
+                table = cursor.fetchall()
+                print(table)
+
+        except Exception as ex:
+            print(ex)
 
 
-class PointsApp(Screen):
-    def build(self):
-        sm = ScreenManager()
-        sm.add_widget(SomePointApp(name='SomePoint'))
-        sm.add_widget(PointsApp(name='Points'))
-        sm.current = 'Points'
-        return sm
