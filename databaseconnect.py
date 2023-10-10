@@ -63,3 +63,12 @@ def User_Remove(user):
     except Exception as ex:
         print(1)
         print(ex)
+
+def Image_Switch(dish):
+    try:
+        with connection.cursor() as cursor:
+            find_query = f"SELECT * FROM `menu` WHERE `dish` = '{dish}'"
+            cursor.execute(find_query)
+            return cursor.fetchall()[0]["image"]
+    except Exception as ex:
+        print(ex, 1)

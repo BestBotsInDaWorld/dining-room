@@ -23,18 +23,12 @@ from kivy.uix.image import Image
 Builder.load_file('food_menu.kv')
 from kivymd.uix.list import OneLineIconListItem
 
+food_cart = {"Торт": 1000}
+food_amound_price = {"Торт": [2, 500]}
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts/RubikMonoOne-Regular.ttf')
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts/Finlandica-Regular.ttf')
-class ImageButton(Button):
-    def __init__(self, im="", **kwargs):
-        super(ImageButton, self).__init__(**kwargs)
-        print(im)
-        self.image = Image(source=im, size =self.size, pos = self.pos)
-        self.add_widget(self.image)
-
-
 
 class FoodMenuApp(Screen):
     def __init__(self, **kwargs):
@@ -52,11 +46,53 @@ class FoodMenuApp(Screen):
             print(food[index]["image"])
             btn = Button(text=f'{food[index]["dish"]} {food[index]["price"]} руб.',
                               size_hint_y=None, height=44, font_size=Window.width / 55)
-            btn.bind(on_release=lambda btn: self.food_choice.select(btn.text))
+            btn.bind(on_release=lambda btn: self.double(btn.text))
             self.food_choice.add_widget(btn)
         self.food_button.bind(on_release=self.food_choice.open)
         self.food_choice.bind(on_select=lambda instance, x: setattr(self.food_button, 'text', x))
 
-    def switch_image(self):
-        text = str(self.food_button.text).split()[0]
-        print(text)
+    def switch_image(self, text):
+        link = Image_Switch(text)
+        try:
+            self.food_image.source = link
+        except Exception as e:
+            pass
+    def double(self, text):
+        self.food_choice.select(str(text))
+        self.switch_image(str(text).split()[0])
+
+    def add_to_order(self):
+        global food_cart, food_amound_price
+        amount = int(self.food_counter.text)
+        name = str(self.food_button.text).split()[0]
+        price = int(str(self.food_button.text).split()[1])
+        food_cart[name] = food_cart.get(name, 0) + amount * price
+        total = food_amound_price.get(name, [0, 0])[0] + amount
+        food_amound_price[name] = [total, price]
+
+class FoodCartApp(Screen):
+    def __init__(self, **kwargs):
+        super(FoodCartApp, self).__init__(**kwargs)
+
+        self.food_exclude_choice = DropDown()
+        positions = list(food_cart.items())
+        for index in range(len(food_cart.keys())):
+            btn = Button(text=f'{positions[index][0].split()[0]}',
+                              size_hint_y=None, height=44, font_size=Window.width / 55)
+            btn.bind(on_release=lambda btn: self.triple(btn.text))
+            self.food_exclude_choice.add_widget(btn)
+        self.food_exclude_button.bind(on_release=self.food_exclude_choice.open)
+        self.food_exclude_choice.bind(on_select=lambda instance, x: setattr(self.food_exclude_button, 'text', x))
+
+    def switch_image(self, text):
+        link = Image_Switch(text)
+        try:
+            self.food_exclusion_image.source = link
+        except Exception as e:
+            pass
+    def triple(self, text):
+        self.food_exclude_choice.select(str(text))
+        self.switch_image(str(text).split()[0])
+
+    def reload(self):
+        self.__init__()
