@@ -9,7 +9,6 @@ try:
 except Exception as ex:
     print(ex)
 
-
 def Register_Finish(encoded_jwt, name, surname, last_name, sex, born):
     try:
         with connection.cursor() as cursor:

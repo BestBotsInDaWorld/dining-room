@@ -3,7 +3,7 @@
     food_image: food_image
     canvas:
         Rectangle:
-            source: "Images/backgrounds/background4.jpg"
+            source: "Images/backgrounds/background5.jpg"
             pos: self.pos
             size: self.size
 
@@ -38,6 +38,8 @@
         font_name: "RubikMonoOne-Regular"
         background_color: (0, 0, 0, 0)
         font_size: root.width / 50
+        on_release: 
+            root.switch_image()
 
     Button:
         canvas.before:
