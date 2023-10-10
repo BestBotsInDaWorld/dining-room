@@ -23,16 +23,62 @@ Builder.load_file("Points.kv")
 
 
 class SomePointApp(Screen):
-    def check_not_occupied(self):
+    def check_not_occupied1(self):
         from point_choice import adress
         try:
             with connection.cursor() as cursor:
                 find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
                 cursor.execute(find_query)
-                table = cursor.fetchall()
-                print(table)
+                table = cursor.fetchall()[0]["tables"].split(",")[1]
 
+                if table == '1':
+                    self.table1.text = "Стол занят"
+                else:
+                    return 1
         except Exception as ex:
             print(ex)
 
+    def check_not_occupied2(self):
+        from point_choice import adress
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
+                cursor.execute(find_query)
+                table = cursor.fetchall()[0]["tables"].split(",")[1]
 
+                if table == '1':
+                    self.table1.text = "Стол занят"
+                else:
+                    return 1
+        except Exception as ex:
+            print(ex)
+
+    def check_not_occupied3(self):
+        from point_choice import adress
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
+                cursor.execute(find_query)
+                table = cursor.fetchall()[0]["tables"].split(",")[1]
+
+                if table == '1':
+                    self.table1.text = "Стол занят"
+                else:
+                    return 1
+        except Exception as ex:
+            print(ex)
+
+    def check_not_occupied4(self):
+        from point_choice import adress
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
+                cursor.execute(find_query)
+                table = cursor.fetchall()[0]["tables"].split(",")[1]
+                if table == '1':
+                    self.table1.text = "Стол занят"
+                else:
+                    return 1
+
+        except Exception as ex:
+            print(ex)

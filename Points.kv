@@ -31,7 +31,7 @@
             font_name: "Finlandica-Regular"
             on_press:
                 root.manager.transition = NoTransition()
-                if root.check_not_occupied(): root.manager.current = 'food_menu'
+                if root.check_not_occupied1(): root.manager.current = 'FoodMenu'
 
         Button:
             id: table2
@@ -46,7 +46,7 @@
             font_name: "Finlandica-Regular"
             on_press:
                 root.manager.transition = NoTransition()
-                if root.check_not_occupied(): root.manager.current = 'food_menu'
+                if root.check_not_occupied1(): root.manager.current = 'FoodMenu'
 
         Button:
             id: table3
@@ -60,7 +60,7 @@
             font_name: "Finlandica-Regular"
             on_press:
                 root.manager.transition = NoTransition()
-                if root.check_not_occupied(): root.manager.current = 'food_menu'
+                if root.check_not_occupied3(): root.manager.current = 'FoodMenu'
         Button:
             id: table4
             source: "Images/furniter/table3!!png.png"
@@ -74,5 +74,5 @@
             font_name: "Finlandica-Regular"
             on_press:
                 root.manager.transition = NoTransition()
-                if root.check_not_occupied(): root.manager.current = 'food_menu'
+                if root.check_not_occupied4(): root.manager.current = 'FoodMenu'
 
