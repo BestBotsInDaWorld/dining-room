@@ -34,7 +34,8 @@ class TestApp(MDApp):
         sm.add_widget(SomePointApp(name="SomePoint"))
         sm.add_widget(FoodMenuApp(name="FoodMenu"))
         sm.add_widget(FoodCartApp(name="FoodCart"))
-        sm.current = 'Menu'
+        sm.add_widget(NewAndHitsApp(name="NewAndHits"))
+        sm.current = 'NewAndHits'
         return sm
 
 
