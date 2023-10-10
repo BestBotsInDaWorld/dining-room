@@ -22,7 +22,7 @@ secret_word = "sberbank"
 Builder.load_file('registrate.kv')
 properties = ["имя", "фамилию", "отчество", "дату рождения", "пол"]
 LabelBase.register(name='RubikMonoOne-Regular',
-                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
+                   fn_regular=r'fonts/RubikMonoOne-Regular.ttf')
 
 try:
     connection = pymysql.connect(host='37.140.192.80',
