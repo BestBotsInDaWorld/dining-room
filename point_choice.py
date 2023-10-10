@@ -37,13 +37,13 @@ Builder.load_file('point_choice.kv')
 
 class PointChoiceApp(Screen):
 
-    def __init__(self, **kwargs):
+    def select_point(self, **kwargs):
         super(PointChoiceApp, self).__init__(**kwargs)
         self.point_choice = DropDown()
         adress = []
         try:
             with connection.cursor() as cursor:
-                find_query = f"SELECT * FROM places"
+                find_query = f"SELECT * FROM points"
                 cursor.execute(find_query)
                 adress = cursor.fetchall()
         except Exception as ex:
@@ -52,5 +52,5 @@ class PointChoiceApp(Screen):
             btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44)
             btn.bind(on_release=lambda btn: self.point_choice.select(btn.text))
             self.point_choice.add_widget(btn)
-        self.point_button.bind(on_release=self.point_choice.open)
-        self.point_choice.bind(on_select=lambda instance, x: setattr(self.point_button, 'text', x))
+        self.point_button_select.bind(on_release=self.point_choice.open)
+        self.point_button_select.bind(on_select=lambda instance, x: setattr(self.point_button, 'text', x))
