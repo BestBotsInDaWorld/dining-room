@@ -194,3 +194,14 @@
         on_press:
             root.manager.transition = NoTransition()
             root.manager.current = "Balance"
+    Button:
+        size_hint_x: None
+        size_hint_y: None
+        font_name: "RubikMonoOne-Regular"
+        text: "Обратно\n к балансу"
+        font_size: 16
+        background_color: (1, 1, 1, 0)
+        size: root.width / 8, root.height / 6
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = "Balance"

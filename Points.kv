@@ -1,5 +1,9 @@
 #: import NoTransition kivy.uix.screenmanager.NoTransition
 <SomePointApp>
+    table1: table1
+    table2: table2
+    table3: table3
+    table4: table4
     canvas.before:
         Rectangle:
             source: "Images/backgrounds/background5.jpg"
@@ -20,8 +24,8 @@
 
         Button:
             id: table1
-            source: "Images/furniter/table3!!png.png"
-            canvas:
+
+            canvas.before:
                 Rectangle:
                     size: self.size
                     pos: self.pos
@@ -36,7 +40,7 @@
         Button:
             id: table2
             source: "Images/furniter/table3!!png.png"
-            canvas:
+            canvas.before:
                 Rectangle:
                     size: self.size
                     pos: self.pos
@@ -50,7 +54,7 @@
 
         Button:
             id: table3
-            canvas:
+            canvas.before:
                 Rectangle:
                     size: self.size
                     pos: self.pos
@@ -63,14 +67,15 @@
                 if root.check_not_occupied3(): root.manager.current = 'FoodMenu'
         Button:
             id: table4
-            source: "Images/furniter/table3!!png.png"
-            canvas:
+
+            canvas.before:
                 Rectangle:
                     size: self.size
                     pos: self.pos
                     source: "Images/furniter/table3!!png.png"
             background_color: (1, 1, 1, 0)
             text: ""
+            font_size: root.width/4
             font_name: "Finlandica-Regular"
             on_press:
                 root.manager.transition = NoTransition()
