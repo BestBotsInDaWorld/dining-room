@@ -26,14 +26,31 @@
         font_name: "RubikMonoOne-Regular"
         background_color: (0, 0, 0, 0)
         font_size: root.width / 50
+    Button:
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 0.2)
+            RoundedRectangle:
+                size: root.width / 2, root.height / 15
+                pos: root.width / 4.5, root.height / 2.15
+                radius: [15]
+        size_hint_x: None
+        size_hint_y: None
+        font_name: "RubikMonoOne-Regular"
+        text: "К филиалу"
+        pos: self.width * 3.2, self.height*2.5
+        font_size: root.width / 25
+        background_color: (1, 1, 1, 0)
+        size: root.width / 8, root.height / 6
         on_press:
-            root.select_point()
+            root.manager.transition = NoTransition()
+            if root.select_button(): root.manager.current = 'SomePoint'
     Button:
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
         text: "Обратно\nв меню"
-        font_size: 16
+        font_size: root.width / 50
         background_color: (1, 1, 1, 0)
         size: root.width / 8, root.height / 6
         on_press:

@@ -1,66 +1,4 @@
 #: import NoTransition kivy.uix.screenmanager.NoTransition
-<PointsApp>
-    canvas.before:
-        Rectangle:
-            source: "Images/backgrounds/background5.jpg"
-            pos: self.pos
-            size: self.size
-
-    GridLayout:
-        size: root.width, root.height
-        cols: 1
-
-        GridLayout:
-            cols: 2
-
-            Button:
-                canvas.before:
-                    Rectangle:
-                        source: "Images/shapes/circle!!png.png"
-                        size: 100, 100
-                        pos: self.pos
-                background_color: (0, 0, 0, 0)
-                on_press: root.button_novobulvarnaya()
-
-            Label:
-                text: "Новобульварная, 10"
-
-            Button:
-                canvas.before:
-                    Rectangle:
-                        source: "Images/shapes/circle!!png.png"
-                        size: 100, 100
-                        pos: self.pos
-                background_color: (0, 0, 0, 0)
-                on_press: root.button_balyabina()
-
-            Label:
-                text: 'Балябина, 32'
-
-            Button:
-                canvas.before:
-                    Rectangle:
-                        source: "Images/shapes/circle!!png.png"
-                        size: 100, 100
-                        pos: self.pos
-                background_color: (0, 0, 0, 0)
-                on_press:
-                    root.manager.transition = NoTransition()
-                    root.manager.current = 'SomePoint'
-
-            Label:
-                text: 'Полины Осипенко, 2'
-
-        GridLayout:
-            cols: 2
-
-            Button:
-                text: "Меню"
-                size: 20, 20
-
-            Button:
-                text: "Профиль"
-
 <SomePointApp>
     canvas.before:
         Rectangle:
@@ -68,53 +6,73 @@
             pos: self.pos
             size: self.size
 
+
     GridLayout:
-        size: root.width, root.height
-        cols: 1
+        cols: 2
+        rows: 2
+        canvas.before:
+            Color:
+                rgba: (.5, .5, .5, 0.15)
+            RoundedRectangle:
+                size: self.width / 1.3, self.height - self.height/8
+                pos: root.width / 8, self.y + 14
+                radius: [15]
 
-        GridLayout:
-            cols: 2
-            rows: 2
-            canvas.before:
-                Color:
-                    rgba: (.5, .5, .5, 0.15)
-                RoundedRectangle:
-                    size: self.width / 1.3, self.height - self.height/8
-                    pos: root.width / 8, self.y + 14
-                    radius: [15]
+        Button:
+            id: table1
+            source: "Images/furniter/table3!!png.png"
+            canvas:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "Images/furniter/table3!!png.png"
+            background_color: (1, 1, 1, 0)
+            text: ""
+            font_name: "Finlandica-Regular"
+            on_press:
+                root.manager.transition = NoTransition()
+                if root.check_not_occupied(): root.manager.current = 'food_menu'
 
-            Image:
-                id: table1
-                source: "Images/furniter/table3!!png.png"
+        Button:
+            id: table2
+            source: "Images/furniter/table3!!png.png"
+            canvas:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "Images/furniter/table3!!png.png"
+            background_color: (1, 1, 1, 0)
+            text: ""
+            font_name: "Finlandica-Regular"
+            on_press:
+                root.manager.transition = NoTransition()
+                if root.check_not_occupied(): root.manager.current = 'food_menu'
 
-            Image:
-                id: table2
-                source: "Images/furniter/table3!!png.png"
+        Button:
+            id: table3
+            canvas:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "Images/furniter/table3!!png.png"
+            background_color: (1, 1, 1, 0)
+            text: ""
+            font_name: "Finlandica-Regular"
+            on_press:
+                root.manager.transition = NoTransition()
+                if root.check_not_occupied(): root.manager.current = 'food_menu'
+        Button:
+            id: table4
+            source: "Images/furniter/table3!!png.png"
+            canvas:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "Images/furniter/table3!!png.png"
+            background_color: (1, 1, 1, 0)
+            text: ""
+            font_name: "Finlandica-Regular"
+            on_press:
+                root.manager.transition = NoTransition()
+                if root.check_not_occupied(): root.manager.current = 'food_menu'
 
-            Image:
-                id: table3
-                source: "Images/furniter/table3!!png.png"
-
-            Image:
-                id: table4
-                source: "Images/furniter/table3!!png.png"
-
-        GridLayout:
-            cols: 2
-
-            canvas.before:
-                Color:
-                    rgba: (.5, .5, .5, 0.15)
-                RoundedRectangle:
-                    size: self.width / 4, self.height - self.height / 1.1
-                    pos: root.width / 8, self.y + 168
-                    radius: [15]
-
-            Label:
-                text: "Меню: пока что ничего нет"
-
-            Button:
-                text: "Назад"
-                on_press:
-                    root.manager.transition = NoTransition()
-                    root.manager.current = 'Points'
