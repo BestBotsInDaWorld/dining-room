@@ -101,6 +101,7 @@
 <FoodCartApp>
     amount_hint: amount_hint
     price_hint: price_hint
+    total_hint: total_hint
     food_exclude_button: food_exclude_button
     food_exclusion_image: food_exclusion_image
     canvas:
@@ -145,14 +146,40 @@
         size: (root.width / 4, root.height / 4)
         pos: (root.width * 0.5, root.height / 2.5)
     Label:
+        size_hint: (None, None)
+        font_size: root.width / 30
+        text: "Итого:"
+        font_name: "RubikMonoOne-Regular"
+        size: (root.width / 4, root.height / 4)
+        pos: (root.width * 0.5, root.height / 3.3)
+    Label:
+        size_hint: (None, None)
+        font_size: root.width / 30
+        text: "Удалить:"
+        font_name: "RubikMonoOne-Regular"
+        size: (root.width / 4, root.height / 4)
+        pos: (root.width * 0.5, root.height / 5)
+    Label:
         id: amount_hint
         size_hint: (None, None)
+        font_size: root.width / 30
+        font_name: "RubikMonoOne-Regular"
         size: (root.width / 4, root.height / 4)
         pos: (root.width * 0.7, root.height / 2)
         text: ""
     Label:
         id: price_hint
         size_hint: (None, None)
+        font_size: root.width / 30
+        font_name: "RubikMonoOne-Regular"
         size: (root.width / 4, root.height / 4)
         pos: (root.width * 0.7, root.height / 2.5)
+        text: ""
+    Label:
+        id: total_hint
+        size_hint: (None, None)
+        font_size: root.width / 30
+        font_name: "RubikMonoOne-Regular"
+        size: (root.width / 4, root.height / 4)
+        pos: (root.width * 0.7, root.height / 3.3)
         text: ""

@@ -31,7 +31,6 @@ class TestApp(MDApp):
         sm.add_widget(AdminPanelApp(name="AdminPanel"))
         sm.add_widget(BalanceApp(name="Balance"))
         sm.add_widget(DepositApp(name="Deposit"))
-        sm.add_widget(PointsApp(name="Points"))
         sm.add_widget(SomePointApp(name="SomePoint"))
         sm.add_widget(FoodMenuApp(name="FoodMenu"))
         sm.add_widget(FoodCartApp(name="FoodCart"))

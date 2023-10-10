@@ -93,6 +93,9 @@ class FoodCartApp(Screen):
     def triple(self, text):
         self.food_exclude_choice.select(str(text))
         self.switch_image(str(text).split()[0])
+        self.amount_hint.text = str(food_amound_price[str(text)][0])
+        self.price_hint.text = str(food_amound_price[str(text)][1])
+        self.total_hint.text = str(food_cart[str(text)])
 
     def reload(self):
         self.__init__()
