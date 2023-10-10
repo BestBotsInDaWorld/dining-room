@@ -86,3 +86,9 @@ class AdminPanelApp(Screen):
 
     def remove_user(self):
         User_Remove(str(self.user_button_del.text))
+
+    def remove_dish(self):
+        Dish_Remove(str(self.dish_button_del.text))
+
+    def add_dish(self):
+        Dish_Add(str(self.dish_name_add), str(self.dish_price_add), str(self.dish_link_add))

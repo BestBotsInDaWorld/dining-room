@@ -18,6 +18,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from databaseconnect import *
 import pymysql
 
+token = ""
 
 encoded_try = ""
 
@@ -40,7 +41,7 @@ LabelBase.register(name='Finlandica-Regular',
 
 class LogApp(Screen):
     def entering(self):
-        global encoded_try
+        global encoded_try, token
         payload = {"login": str(self.username_input.text), "password": str(self.password_input.text)}
         encoded_try = jwt.encode(payload, secret_word, algorithm="HS256")
 
@@ -52,7 +53,7 @@ class LogApp(Screen):
                     self.worst_login.text = "Неверный логин или пароль"
                     raise Exception('Неверный логин или пароль')
                     return 0
-                print(encoded_try)
+                token = encoded_try
                 return 1
         except Exception as ex:
             print(ex)

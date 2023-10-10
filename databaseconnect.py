@@ -64,6 +64,27 @@ def User_Remove(user):
         print(1)
         print(ex)
 
+def Dish_Add(dish_name, dish_price, dish_link):
+    try:
+        with connection.cursor() as cursor:
+            insert_query = f"INSERT INTO `menu` (`dish`, `price`, `image`) " \
+                        f"VALUES ('{dish_name}', '{dish_price}', {dish_link})"
+            cursor.execute(insert_query)
+            connection.commit()
+    except Exception as ex:
+        print(1)
+        print(ex)
+
+def Dish_Remove(dish):
+    try:
+        with connection.cursor() as cursor:
+            remove_query = f"DELETE FROM `menu`" \
+                           f"WHERE `dish` = '{dish}'"
+            cursor.execute(remove_query)
+            connection.commit()
+    except Exception as ex:
+        print(1)
+        print(ex)
 def Image_Switch(dish):
     try:
         with connection.cursor() as cursor:

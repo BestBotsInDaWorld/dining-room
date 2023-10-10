@@ -24,12 +24,24 @@ from kivy.uix.image import Image
 Builder.load_file('food_menu.kv')
 from kivymd.uix.list import OneLineIconListItem
 
-food_cart = {"Торт": 1000}
-food_amound_price = {"Торт": [2, 500]}
+tok = ""
+
+food_cart = {}
+food_amound_price = {}
 LabelBase.register(name='RubikMonoOne-Regular',
                    fn_regular=r'fonts/RubikMonoOne-Regular.ttf')
 LabelBase.register(name='Finlandica-Regular',
                    fn_regular=r'fonts/Finlandica-Regular.ttf')
+
+try:
+    connection = pymysql.connect(host='37.140.192.80',
+                                 user='u0823922_hakaton',
+                                 password='tB4nG4fN9sqG1vJ9',
+                                 cursorclass=pymysql.cursors.DictCursor,
+                                 database="u0823922_hakaton")
+    print("successfully...")
+except Exception as ex:
+    print(ex)
 
 
 class FoodMenuApp(Screen):
@@ -64,7 +76,9 @@ class FoodMenuApp(Screen):
         self.switch_image(str(text).split()[0])
 
     def add_to_order(self):
-        global food_cart, food_amound_price
+        global food_cart, food_amound_price, tok
+        from logining import token
+        tok = token
         amount = int(self.food_counter.text)
         name = str(self.food_button.text).split()[0]
         price = int(str(self.food_button.text).split()[1])
@@ -72,7 +86,7 @@ class FoodMenuApp(Screen):
         total = food_amound_price.get(name, [0, 0])[0] + amount
         food_amound_price[name] = [total, price]
         s2 = self.manager.get_screen("FoodCart")
-        s2.deleting_dishes()
+        s2.reload()
 
 
 class FoodCartApp(Screen):
@@ -97,10 +111,9 @@ class FoodCartApp(Screen):
             order += int(total)
             self.total_order.text = self.total_order.text + f'{dish} {amm} шт. {total} руб.\n'
         self.total_summ.text = f'{str(order)} руб.'
-
         self.widgets = [self.food_exclude_choice, self.food_exclude_button, self.amount_hint, self.price_hint,
                         self.total_hint, self.dish_del_counter, self.food_exclusion_image, self.cart_delete,
-                        self.total_order, self.total_summ]
+                        self.total_order, self.total_summ, self.balance_hint]
 
     def switch_image(self, text):
         link = Image_Switch(text)
@@ -125,8 +138,36 @@ class FoodCartApp(Screen):
             food_cart[text] = int(a) * int(b)
         except Exception as e:
             print(e)
-            pass
+            return 0
         self.reload()
+
+    def dishes_ordering(self):
+        balance1 = 0
+        global tok
+        try:
+            with connection.cursor() as cursor:
+                find_query = f"SELECT * FROM `users` WHERE `jwt` = '{tok}'"
+                cursor.execute(find_query)
+                balance1 = int(cursor.fetchall()[0]["balance"])
+        except Exception as ex:
+            print(ex)
+        balance2 = int(str(self.total_summ.text).split()[0])
+        print(balance1, balance2)
+        if (balance2 > balance1):
+            self.balance_hint.text = "Пополните баланс"
+        else:
+            global food_cart, food_amound_price
+            food_cart = {}
+            food_amound_price = {}
+            try:
+                with connection.cursor() as cursor:
+                    update_query = f"UPDATE `users` SET `balance`='{balance1 - balance2}' WHERE jwt ='{tok}'"
+                    cursor.execute(update_query)
+                    connection.commit()
+            except Exception as e:
+                print(e)
+            self.balance_hint.text = "Заказ произведен"
+            self.reload()
 
     def reload(self):
         for i in self.widgets:

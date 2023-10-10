@@ -67,7 +67,6 @@ def isfloat(num):
 class DepositApp(Screen):
     def confirm_deposit(self):
         from logining import encoded_try
-        encoded_try
 
         if isfloat(str(self.deposit.text)):
             try:
