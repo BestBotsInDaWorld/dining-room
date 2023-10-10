@@ -19,9 +19,9 @@ import pymysql
 Builder.load_file('otherFunctions.kv')
 
 LabelBase.register(name='RubikMonoOne-Regular',
-                   fn_regular=r'fonts\RubikMonoOne-Regular.ttf')
+                   fn_regular=r'fonts/RubikMonoOne-Regular.ttf')
 LabelBase.register(name='Finlandica-Regular',
-                   fn_regular=r'fonts\Finlandica-Regular.ttf')
+                   fn_regular=r'fonts/Finlandica-Regular.ttf')
 
 try:
     connection = pymysql.connect(host='37.140.192.80',
