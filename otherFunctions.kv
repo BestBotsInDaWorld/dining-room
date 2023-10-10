@@ -19,24 +19,17 @@
         pos: self.width / 25, self.height /13
         text: "Система <Столовая> автоматизирует\nвзаимодействие сотрудников с компанией\nпредоставляющей услуги корпоративного\nпитания. "
     Button:
-        canvas:
-            Color:
-                rgba: (1, 1, 1, 0.2)
-            RoundedRectangle:
-                size: root.width / 6, root.height / 6
-                pos: (root.width / 10, 0)
-                radius: [15]
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
         text: "Обратно\nв меню"
-        font_size: root.width / 35
+        font_size: 16
         background_color: (1, 1, 1, 0)
-        pos: root.width * 0.1, 0
-        size: root.width / 6, root.height / 6
+        size: root.width / 8, root.height / 6
         on_press:
             root.manager.transition = NoTransition()
             root.manager.current = 'Menu'
+
 
 <OtherSystemsApp>
     canvas:
@@ -45,21 +38,13 @@
             pos: self.pos
             size: self.size
     Button:
-        canvas:
-            Color:
-                rgba: (1, 1, 1, 0.2)
-            RoundedRectangle:
-                size: root.width / 6, root.height / 6
-                pos: (root.width / 10, 0)
-                radius: [15]
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
         text: "Обратно\nв меню"
-        font_size: root.width / 35
+        font_size: 16
         background_color: (1, 1, 1, 0)
-        pos: root.width * 0.1, 0
-        size: root.width / 6, root.height / 6
+        size: root.width / 8, root.height / 6
         on_press:
             root.manager.transition = NoTransition()
             root.manager.current = 'Menu'
@@ -139,24 +124,37 @@
             pos: root.width / 1.7, root.height/5
             background_color: (1, 1, 1, 0)
     Button:
-        canvas:
-            Color:
-                rgba: (1, 1, 1, 0.2)
-            RoundedRectangle:
-                size: root.width / 6, root.height / 6
-                pos: (root.width / 10, 0)
-                radius: [15]
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
         text: "Обратно\nв меню"
-        font_size: root.width / 35
+        font_size: 16
         background_color: (1, 1, 1, 0)
-        pos: root.width * 0.1, 0
-        size: root.width / 6, root.height / 6
+        size: root.width / 8, root.height / 6
         on_press:
             root.manager.transition = NoTransition()
             root.manager.current = 'Menu'
+<NewAndHitsApp>
+
+    canvas:
+        Rectangle:
+            source: 'Images/backgrounds/background5.jpg'
+            pos: self.pos
+            size: self.size
+    Button:
+        size_hint_x: None
+        size_hint_y: None
+        font_name: "RubikMonoOne-Regular"
+        text: "Обратно\nв меню"
+        font_size: 16
+        background_color: (1, 1, 1, 0)
+        size: root.width / 8, root.height / 6
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Menu'
+
+
+
 <DepositApp>
     deposit: deposit
     canvas:
@@ -186,21 +184,24 @@
             background_color: (1, 1, 1, 0)
             on_press: root.confirm_deposit()
     Button:
-        canvas:
-            Color:
-                rgba: (1, 1, 1, 0.2)
-            RoundedRectangle:
-                size: root.width / 6, root.height / 6
-                pos: (root.width / 10, 0)
-                radius: [15]
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
-        text: "Обратно\nв меню"
-        font_size: root.width / 35
+        text: "Обратно\n к балансу"
+        font_size: 16
         background_color: (1, 1, 1, 0)
-        pos: root.width * 0.1, 0
-        size: root.width / 6, root.height / 6
+        size: root.width / 8, root.height / 6
         on_press:
             root.manager.transition = NoTransition()
-            root.manager.current = 'Menu'
+            root.manager.current = "Balance"
+    Button:
+        size_hint_x: None
+        size_hint_y: None
+        font_name: "RubikMonoOne-Regular"
+        text: "Обратно\n к балансу"
+        font_size: 16
+        background_color: (1, 1, 1, 0)
+        size: root.width / 8, root.height / 6
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = "Balance"

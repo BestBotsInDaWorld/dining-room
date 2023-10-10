@@ -29,10 +29,10 @@ class SomePointApp(Screen):
             with connection.cursor() as cursor:
                 find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
                 cursor.execute(find_query)
-                table = cursor.fetchall()[0]["tables"].split(",")[1]
-
+                table = cursor.fetchall()[0]["tables"].split(", ")[0]
                 if table == '1':
                     self.table1.text = "Стол занят"
+                    return 0
                 else:
                     return 1
         except Exception as ex:
@@ -44,10 +44,10 @@ class SomePointApp(Screen):
             with connection.cursor() as cursor:
                 find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
                 cursor.execute(find_query)
-                table = cursor.fetchall()[0]["tables"].split(",")[1]
-
+                table = cursor.fetchall()[0]["tables"].split(", ")[1]
                 if table == '1':
-                    self.table1.text = "Стол занят"
+                    self.table2.text = "Стол занят"
+                    return 0
                 else:
                     return 1
         except Exception as ex:
@@ -59,10 +59,11 @@ class SomePointApp(Screen):
             with connection.cursor() as cursor:
                 find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
                 cursor.execute(find_query)
-                table = cursor.fetchall()[0]["tables"].split(",")[1]
-
+                table = cursor.fetchall()[0]["tables"].split(", ")[2]
                 if table == '1':
-                    self.table1.text = "Стол занят"
+                    self.table3.text = "Стол занят"
+                    print(1)
+                    return 0
                 else:
                     return 1
         except Exception as ex:
@@ -74,11 +75,11 @@ class SomePointApp(Screen):
             with connection.cursor() as cursor:
                 find_query = f"SELECT tables FROM points WHERE Adress='{adress}'"
                 cursor.execute(find_query)
-                table = cursor.fetchall()[0]["tables"].split(",")[1]
+                table = cursor.fetchall()[0]["tables"].split(", ")[3]
                 if table == '1':
-                    self.table1.text = "Стол занят"
+                    self.table4.text = "Стол занят"
+                    return 0
                 else:
                     return 1
-
         except Exception as ex:
             print(ex)
