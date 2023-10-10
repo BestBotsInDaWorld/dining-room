@@ -56,7 +56,6 @@ class AdminPanelApp(Screen):
         except Exception as ex:
             print(ex)
         for index in range(len(adress)):
-
             btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44, font_size=Window.width / 55)
             btn.bind(on_release=lambda btn: self.point_choice_del.select(btn.text))
             self.point_choice_del.add_widget(btn)

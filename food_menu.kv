@@ -1,12 +1,18 @@
 <FoodMenuApp>
     food_button: food_button
-
+    food_image: food_image
     canvas:
         Rectangle:
             source: "Images/backgrounds/background4.jpg"
             pos: self.pos
             size: self.size
 
+    Image:
+        id: food_image
+        source: "Images/backgrounds/grey_font.jpg"
+        size_hint: (None, None)
+        size: (root.width / 4, root.height / 4)
+        pos: (root.width / 20, root.height / 1.5)
     Label:
         text: 'Выбор \nблюда'
         size_hint: (None, None)

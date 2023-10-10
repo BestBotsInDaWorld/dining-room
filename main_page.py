@@ -6,6 +6,7 @@ from Admin_panel import *
 from point_choice import *
 from other_functions import *
 from Points import *
+from food_menu import *
 from kivymd.uix.screen import MDScreen
 
 
@@ -32,7 +33,8 @@ class TestApp(MDApp):
         sm.add_widget(DepositApp(name="Deposit"))
         sm.add_widget(PointsApp(name="Points"))
         sm.add_widget(SomePointApp(name="SomePoint"))
-        sm.current = 'AdminPanel'
+        sm.add_widget(FoodMenuApp(name="FoodMenu"))
+        sm.current = 'FoodMenu'
         return sm
 
 

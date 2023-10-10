@@ -48,9 +48,6 @@ class FoodMenuApp(Screen):
                 food = cursor.fetchall()
         except Exception as ex:
             print(ex)
-        self.image = Image(source="Images/backgrounds/grey_font.jpg", size_hint = (None, None),
-                           size=(self.width/2, self.height/2), pos = (self.width / 2, self.height / 2))
-        self.add_widget(self.image)
         for index in range(len(food)):
             print(food[index]["image"])
             btn = Button(text=f'{food[index]["dish"]} {food[index]["price"]} руб.',
@@ -59,3 +56,6 @@ class FoodMenuApp(Screen):
             self.food_choice.add_widget(btn)
         self.food_button.bind(on_release=self.food_choice.open)
         self.food_choice.bind(on_select=lambda instance, x: setattr(self.food_button, 'text', x))
+
+    def switch_image(self):
+        text = str(self.food_button.text).split()[0]
