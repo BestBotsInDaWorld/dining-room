@@ -139,13 +139,21 @@
             root.remove_user()
 
     Button:
+        canvas:
+            Color:
+                rgba: (1, 1, 1, 0.2)
+            RoundedRectangle:
+                size: root.width / 6, root.height / 6
+                pos: (root.width / 10, 0)
+                radius: [15]
         size_hint_x: None
         size_hint_y: None
         font_name: "RubikMonoOne-Regular"
         text: "Обратно\nв меню"
-        font_size: 16
+        font_size: root.width / 35
         background_color: (1, 1, 1, 0)
-        size: root.width / 8, root.height / 6
+        pos: root.width * 0.1, 0
+        size: root.width / 6, root.height / 6
         on_press:
             root.manager.transition = NoTransition()
             root.manager.current = 'Menu'
