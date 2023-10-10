@@ -25,7 +25,30 @@
     Button:
         canvas:
             Rectangle:
-                source: "Images/icons/ic-24-flag.png"
+                source: "Images/icons/icons8-выход-100.png"
+                pos: self.x * 1.05, self.y
+                size: self.width / 1.2, self.height / 1.2
+        size_hint_x: None
+        size_hint_y: None
+        size: root.width / 10, root.height / 8
+        pos: root.width * 0.68, root.height * 0.65
+        background_color: (0, 0, 0, 0)
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Log'
+    Button:
+        pos: root.width * 0.4, root.height * 0.2
+        font_name: "RubikMonoOne-Regular"
+        font_size: self.width / 45
+        text: "Выход из\nсистемы"
+        background_color: (0, 0, 0, 0)
+        on_press:
+            root.manager.transition = NoTransition()
+            root.manager.current = 'Log'
+    Button:
+        canvas:
+            Rectangle:
+                source: "Images/icons/icons8-администратор-100.png"
                 pos: self.pos
                 size: self.width, self.height
         size_hint_x: None
@@ -59,7 +82,7 @@
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'Points'
+                    root.manager.current = 'PointChoice'
             Button:
                 text: "\nК точкам"
                 font_size: self.width / 8
@@ -67,7 +90,7 @@
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'Points'
+                    root.manager.current = 'PointChoice'
             Button:
                 canvas:
                     Rectangle:
@@ -125,7 +148,7 @@
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'Admin_Login'
+                    root.manager.current = 'NewAndHits'
             Button:
                 font_size: self.width / 8
                 text: "\n Новинки и \n хиты"
@@ -133,11 +156,11 @@
                 background_color: (0, 0, 0, 0)
                 on_press:
                     root.manager.transition = NoTransition()
-                    root.manager.current = 'Admin_Login'
+                    root.manager.current = 'NewAndHits'
             Button:
                 canvas:
                     Rectangle:
-                        source: "Images/icons/ic-24-map.png"
+                        source: "Images/icons/icons8-задать-вопрос-96.png"
                         pos: self.x * 1.12, self.height * 0.14
                         size: self.width / 1.4, self.height / 1.4
 
@@ -160,9 +183,9 @@
             Button:
                 canvas:
                     Rectangle:
-                        source: "Images/icons/arrow-right-uturn.png"
-                        pos: self.x * 1.05, self.y
-                        size: self.width / 1.2, self.height / 1.2
+                        source: "Images/icons/icons8-гексагональная-синхронизация-128.png"
+                        pos: self.x *1.06, self.y + 20
+                        size: self.width / 1.5, self.height / 1.5
                 size_hint_x: None
                 size_hint_y: None
                 size: root.width / 8, root.height / 6
