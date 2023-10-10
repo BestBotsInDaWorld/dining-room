@@ -59,3 +59,4 @@ class FoodMenuApp(Screen):
 
     def switch_image(self):
         text = str(self.food_button.text).split()[0]
+        print(text)
