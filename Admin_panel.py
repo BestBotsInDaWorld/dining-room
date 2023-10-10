@@ -58,7 +58,6 @@ class AdminPanelApp(Screen):
         for index in range(len(adress)):
 
             btn = Button(text=adress[index]["Adress"], size_hint_y=None, height=44, font_size=Window.width / 55)
-            print(adress[index]["Adress"])
             btn.bind(on_release=lambda btn: self.point_choice_del.select(btn.text))
             self.point_choice_del.add_widget(btn)
         self.point_button_del.bind(on_release=self.point_choice_del.open)
