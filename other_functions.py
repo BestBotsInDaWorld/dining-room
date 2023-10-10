@@ -41,6 +41,7 @@ class AboutUsApp(Screen):
 class OtherSystemsApp(Screen):
     pass
 
+
 class BalanceApp(Screen):
     def update_balance(self):
         from logining import encoded_try
@@ -89,3 +90,6 @@ class DepositApp(Screen):
                 print(ex)
         else:
             print("else")
+
+class NewAndHitsApp(Screen):
+    pass

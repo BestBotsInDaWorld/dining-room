@@ -1,6 +1,7 @@
+# import pyjwt
 import jwt
 
-payload = {"login": "Maksim",
+payload = {"login": "Admin",
            "password": "123456789"}
 
 token = jwt.encode(payload, "sberbank",  algorithm="HS256")
